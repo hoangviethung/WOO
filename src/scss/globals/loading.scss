@@ -1,44 +1,59 @@
-#loading {
+#loading-container {
 	position: fixed;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
 	z-index: 99999;
-	transition: 1s;
+	transition: 1s ease-in-out;
 	background-color: #ffffff;
-	width: 100%;
-	height: 100%;
 
-	#progress,
-	.progstat-wrapper {
+	.loading-wrapper {
 		position: absolute;
-		top: 50%;
-		transform: translateY(-50%)
-	}
-
-	#progress {
-		transition: 1s;
-		background: #000;
-		width: 0;
-		height: 1px
-	}
-
-	.progstat-wrapper {
-		margin-top: 70px;
-		width: 100%;
-		color: #000;
-		font-size: 14px;
-		font-weight: 300;
-		letter-spacing: 3px;
-		text-align: center
-	}
-
-	.logo-loader {
-		transform: translate(-50%, -50%);
-		position: absolute;
+		padding-bottom: 75px;
 		top: 50%;
 		left: 50%;
-		margin-top: -50px;
+		transform: translate(-50%, -50%);
+		width: 100%;
+		max-width: 450px;
+		padding: 0 20px;
+	}
+
+	#loading-logo {
+		text-align: center;
+		padding: 20px 0;
+
+		img,
+		svg {
+			max-width: 200px;
+			width: 100%;
+		}
+	}
+
+	.progress {
+		height: 15px;
+		background-color: darken(white, 5%);
+		box-shadow: 0px 0px 0px 2px white, 0px 0px 0px 3px black;
+		border-radius: 8px;
+		overflow: hidden;
+	}
+
+	#progress-bar {
+		max-width: 100%;
+		width: 0%;
+		height: 100%;
+		background-color: #F1667F;
+		background-image: linear-gradient(45deg, rgba(255, 255, 255, .3) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .3) 50%, rgba(255, 255, 255, .3) 75%, transparent 75%, transparent);
+		background-size: 1rem 1rem;
+		background-repeat: repeat;
+		animation: background 10s linear infinite forwards;
+	}
+
+	.progress-status {
+		margin-top: 15px;
+		text-align: center;
+		font-size: 16px;
+		letter-spacing: 3px;
+		font-weight: 600;
 	}
 }

@@ -1,0 +1,26 @@
+.fp-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.fp-section {
+	position: absolute;
+	width: 100%;
+	min-height: 100%;
+	display: flex;
+	align-items: center;
+	opacity: 0;
+
+	&.scrolling {
+		z-index: 2;
+		opacity: 1;
+	}
+
+	&.active {
+		z-index: 1;
+		opacity: 1;
+	}
+}

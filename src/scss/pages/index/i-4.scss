@@ -1,0 +1,32 @@
+.fp-section-4 {
+	.video {
+		width: 100%;
+	}
+
+	.container {
+		padding-bottom: 50px;
+	}
+
+	.section-title {
+		position: absolute;
+		top: 40%;
+		left: 80%;
+	}
+
+	.content {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+	}
+
+	.section-description {
+		p {
+			color: #FFFFFF;
+		}
+
+		+.section-description {
+			padding-left: 120px;
+			margin-top: 15px;
+		}
+	}
+}

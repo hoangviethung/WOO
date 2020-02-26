@@ -1,0 +1,27 @@
+header {
+	position: fixed;
+	padding: 15px 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	padding-top: 60px;
+
+	.nav-list {
+		padding-left: 0;
+		list-style-type: none;
+		display: flex;
+		justify-content: center;
+
+		.nav-link {
+			font-size: 18px;
+			font-weight: 700;
+		}
+
+		.nav-item {
+			+.nav-item {
+				margin-left: 65px;
+			}
+		}
+	}
+}

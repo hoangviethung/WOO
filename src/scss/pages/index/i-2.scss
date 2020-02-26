@@ -1,0 +1,20 @@
+.fp-section-2 {
+	.video {
+		width: 100%;
+	}
+
+	.content {
+		position: relative;
+		margin-bottom: 10%;
+	}
+
+	.section-description {
+		position: absolute;
+		left: 35%;
+		top: 100%;
+
+		p {
+			color: rgba(white, .6);
+		}
+	}
+}

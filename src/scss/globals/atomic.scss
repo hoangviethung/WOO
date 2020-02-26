@@ -16,6 +16,24 @@
 	}
 }
 
+.of-cv {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	font-family: 'object-fit: cover, object-position: center';
+	background-size: cover;
+}
+
+.of-ct {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: center;
+	font-family: 'object-fit: contain, object-position: center';
+	background-size: contain;
+}
+
 .d-b {
 	display: block;
 }
@@ -40,8 +58,16 @@
 	align-items: center;
 }
 
+.ai-fe {
+	align-items: flex-end;
+}
+
 .as-c {
 	align-self: center;
+}
+
+.as-fe {
+	align-self: flex-end;
 }
 
 .jc-c {
@@ -57,9 +83,9 @@
 }
 
 .fcc {
-	display        : flex;
+	display: flex;
 	justify-content: center;
-	align-items    : center;
+	align-items: center;
 }
 
 // List, ul, ol, dl
@@ -83,23 +109,7 @@
 
 .mx-at {
 	margin-right: auto;
-	margin-left : auto;
-}
-
-.bd-0 {
-	border: 0;
-}
-
-.w-100 {
-	width: 100%;
-}
-
-.w-50 {
-	width: 50%;
-}
-
-.bd-main {
-	border: 1px solid map-get($mau, main);
+	margin-left: auto;
 }
 
 .ov-h {
@@ -132,14 +142,6 @@
 
 .ta-c {
 	text-align: center;
-}
-
-.ta-r {
-	text-align: center;
-}
-
-.op-50 {
-	opacity: 50%;
 }
 
 .td-u {
