@@ -21,42 +21,55 @@
 // }
 
 .section-title {
-	display: flex;
+	display  : flex;
 	flex-wrap: wrap;
 
 	h2 {
-		position: relative;
+		position     : relative;
 		padding-right: 70px;
-		font-size: 170px;
-		line-height: 1.1;
-		color: white;
+		font-size    : 170px;
+		line-height  : 1.1;
+		color        : white;
 
 		&:before {
-			content: '';
-			position: absolute;
-			width: 40px;
-			height: 40px;
-			top: 30%;
-			right: 0;
-			background-image: url('../assets/icons/arrow-title.svg');
+			content            : '';
+			position           : absolute;
+			width              : 40px;
+			height             : 40px;
+			top                : 30%;
+			right              : 0;
+			background-image   : url('../assets/icons/arrow-title.svg');
 			background-position: center center;
 		}
 	}
 
 	h3 {
-		-ms-flex: 0 0 100%;
+		-ms-flex        : 0 0 100%;
 		-webkit-box-flex: 0;
-		flex: 0 0 100%;
-		max-width: 100%;
-		font-size: 80px;
-		line-height: 1.2;
-		color: white;
-		margin-top: -20px;
+		flex            : 0 0 100%;
+		max-width       : 100%;
+		font-size       : 80px;
+		line-height     : 1.2;
+		color           : white;
+		margin-top      : -20px;
+	}
+
+	@media (max-width: 1024.98px) {
+		h2 {
+			font-size: 90px;
+			color    : map-get($mau, main)
+		}
 	}
 }
 
 .section-description {
 	p {
 		font-size: 42px;
+	}
+
+	@media (max-width: 1024.98px) {
+		p {
+			font-size: 24px;
+		}
 	}
 }

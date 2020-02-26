@@ -61,12 +61,13 @@ const setFullpage = () => {
 	})
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
 	getSvg();
 	Loading().then(() => {
 		setHeight('.background-circle', 1);
-		setSizeForCharacterImage();
+		if (window.innerWidth > 1024) {
+			setSizeForCharacterImage();
+		}
 		if (window.innerWidth > 1024) {
 			ImageParticle('./assets/woo.svg', {
 				colors: ['#F1667F', '#D5D5D5'],
@@ -82,5 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('resize', () => {
 	setHeight('.background-circle', 1);
-	setSizeForCharacterImage();
+	if (window.innerWidth > 1024) {
+		setSizeForCharacterImage();
+	}
 })

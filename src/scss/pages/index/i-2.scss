@@ -4,17 +4,41 @@
 	}
 
 	.content {
-		position: relative;
+		position     : relative;
 		margin-bottom: 10%;
 	}
 
 	.section-description {
 		position: absolute;
-		left: 35%;
-		top: 100%;
+		left    : 35%;
+		top     : 100%;
 
 		p {
 			color: rgba(white, .6);
 		}
+	}
+
+	@media (max-width: 1024.98px) {
+		position: relative;
+
+		.content {
+			margin-bottom: 0;
+		}
+
+		.section-description {
+			position: static;
+			left    : unset;
+			top     : unset;
+
+			p {
+				color: #000000;
+			}
+		}
+
+		p {
+			color: map-get($mau, main);
+		}
+
+		.character-icon {}
 	}
 }
