@@ -67,15 +67,17 @@ document.addEventListener('DOMContentLoaded', () => {
 	Loading().then(() => {
 		setHeight('.background-circle', 1);
 		setSizeForCharacterImage();
-		ImageParticle('./assets/woo.svg', {
-			colors: ['#F1667F', '#D5D5D5'],
-			duration: 1000,
-			on: {
-				init: function() {}
-			}
-		});
+		if (window.innerWidth > 1024) {
+			ImageParticle('./assets/woo.svg', {
+				colors: ['#F1667F', '#D5D5D5'],
+				duration: 1000,
+				on: {
+					init: function() {}
+				}
+			});
+			setFullpage();
+		}
 	});
-	setFullpage();
 });
 
 window.addEventListener('resize', () => {

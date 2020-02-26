@@ -1,16 +1,25 @@
 .img-particle {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	overflow: hidden;
-	background-image: url(../assets/background_1.png);
-	background-size: cover;
+	display            : flex;
+	justify-content    : center;
+	align-items        : center;
+	position           : relative;
+	overflow           : hidden;
+	background-image   : url(../assets/background_1.png);
+	background-size    : cover;
 	background-position: center;
-	transition: background-color .5s ease-in;
+	transition         : background-color .5s ease-in;
 
 	.canvas-wrapper {
-		display: flex;
+		display  : flex;
 		flex-wrap: wrap;
+	}
+
+	.canvas-img {
+		width : 50%;
+		margin: 0 auto;
+
+		svg {
+			width: 100%;
+		}
 	}
 }

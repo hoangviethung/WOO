@@ -1,5 +1,11 @@
+@media (max-width: 1024.98px) {
+	main {
+		padding-top: 102px;
+	}
+}
+
 .blur-up {
-	filter: blur(10px);
+	filter    : blur(10px);
 	transition: filter 1s;
 
 	&.lazy-loaded {
@@ -8,32 +14,32 @@
 }
 
 .character-w {
-	mask-image: url(/assets/background-w.png);
+	mask-image   : url(/assets/background-w.png);
 	mask-position: center;
-	mask-size: 100% 100%;
-	object-fit: cover;
+	mask-size    : 100% 100%;
+	object-fit   : cover;
 }
 
 .character-o {
-	mask-image: url(/assets/background-o.png);
+	mask-image   : url(/assets/background-o.png);
 	mask-position: center;
-	mask-size: 100% 100%;
-	object-fit: cover;
+	mask-size    : 100% 100%;
+	object-fit   : cover;
 }
 
 .character-m {
-	mask-image: url(/assets/background-m.png);
+	mask-image   : url(/assets/background-m.png);
 	mask-position: center;
-	mask-size: 100% 100%;
-	object-fit: cover;
+	mask-size    : 100% 100%;
+	object-fit   : cover;
 }
 
 .widget-container {
-	position: fixed;
-	bottom: 0;
+	position      : fixed;
+	bottom        : 0;
 	padding-bottom: 60px;
-	width: 100%;
-	z-index: 101;
+	width         : 100%;
+	z-index       : 101;
 
 	.widget-wrapper {
 		display: flex;
@@ -42,15 +48,15 @@
 			position: relative;
 
 			&:before {
-				position: absolute;
-				content: '';
-				width: 60px;
-				height: 1px;
+				position        : absolute;
+				content         : '';
+				width           : 60px;
+				height          : 1px;
 				background-color: black;
-				top: 50%;
-				left: 100%;
-				margin-left: 15px;
-				transform: translateY(-50%);
+				top             : 50%;
+				left            : 100%;
+				margin-left     : 15px;
+				transform       : translateY(-50%);
 			}
 		}
 
@@ -67,9 +73,9 @@
 }
 
 .img-canvas {
-	display: flex;
+	display  : flex;
 	flex-wrap: wrap;
-	margin: 0 auto;
+	margin   : 0 auto;
 
 	*:not(canvas) {
 		opacity: 0;
@@ -77,9 +83,9 @@
 	}
 
 	canvas {
-		border-radius: 50%;
+		border-radius   : 50%;
 		background-color: map-get($mau, main);
-		// width: 29px;
-		// height: 29px;
+		// width        : 29px;
+		// height       : 29px;
 	}
 }
