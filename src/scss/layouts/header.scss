@@ -1,20 +1,24 @@
 header {
 	position: fixed;
-	padding : 60px 0 15px 0;
-	top     : 0;
-	left    : 0;
-	width   : 100%;
-	z-index : 100;
+	padding: 60px 0 15px 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
 
 	.nav-list {
-		padding-left   : 0;
+		padding-left: 0;
 		list-style-type: none;
-		display        : flex;
+		padding-bottom: 10px;
+		transition: all .2s linear;
+		display: flex;
 		justify-content: center;
+		border-bottom: 1px solid #dfdfdf;
 
 		.nav-link {
-			font-size  : 18px;
+			font-size: 18px;
 			font-weight: 700;
+			transition: all .2s linear;
 		}
 
 		.nav-item {
@@ -24,12 +28,131 @@ header {
 		}
 	}
 
+	&.odd {
+		.nav-list {
+			border-bottom: 1px solid #dfdfdf;
+
+			.nav-link {
+				color: #1c1c1c;
+			}
+		}
+	}
+
+	&.even {
+		.nav-list {
+			border-bottom: 1px solid map-get($mau, main);
+
+			.nav-link {
+				color: white;
+			}
+		}
+	}
+
+	.main-nav {
+		margin-right: auto;
+		margin-left: auto;
+	}
+
 	@media (max-width: 1024.98px) {
-		padding: 30px 15px;
+		padding: 10px 0;
+		border-bottom: 1px solid map-get($mau, main);
+		background-color: white;
+
+		.social {
+			padding: 0 10px;
+			display: flex;
+			align-items: center;
+
+			a {
+				+a {
+					margin-left: 15px;
+				}
+			}
+		}
+
+		.toggle-menu {
+			position: relative;
+			margin-left: auto;
+			margin-right: 10px;
+			width: 40px;
+			height: 40px;
+			background: map-get($mau, main);
+			border-radius: 50%;
+
+			&:before,
+			&:after {
+				position: absolute;
+				left: 11px;
+				width: 18px;
+				height: 2px;
+				background-color: #fff;
+				content: "";
+				transition: .3s all linear;
+			}
+
+			&:before {
+				top: 23px;
+			}
+
+			&:after {
+				top: 15px;
+			}
+
+			&.active {
+
+				&:before,
+				&:after {
+					top: 50%;
+					left: 50%;
+				}
+
+				&:before {
+					transform: translate(-50%, -50%) rotate(45deg);
+				}
+
+				&:after {
+					transform: translate(-50%, -50%) rotate(-45deg);
+				}
+			}
+		}
 
 		.nav-list {
 			.nav-link {
 				font-size: 16px;
+			}
+		}
+
+		.nav-list {
+			flex-direction: column;
+			background: #FFFFFF;
+			position: fixed;
+			z-index: 100;
+			width: 100%;
+			max-width: 350px;
+			transform: translateX(-100%);
+			top: 61px;
+			left: 0;
+			bottom: 0;
+			overflow-y: auto;
+			transition: .3s all ease-in-out;
+			padding-right: 0;
+			justify-content: flex-start;
+
+			>.nav-item {
+				padding: 0;
+				margin: 0;
+				padding: 15px 10px;
+				color: map-get($mau, main);
+				border-bottom: 1px solid #dedede;
+
+				+.nav-item {
+					margin-left: 0;
+				}
+			}
+
+			&.active {
+				transform: translateX(0%);
+				box-shadow: 0 0 12px rgba(black, .15);
 			}
 		}
 	}

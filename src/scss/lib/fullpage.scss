@@ -1,19 +1,19 @@
 @media (min-width: 1025px) {
 	.fp-container {
 		position: fixed;
-		top     : 0;
-		left    : 0;
-		bottom  : 0;
-		right   : 0;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
 	}
 
 	.fp-section {
-		position   : absolute;
-		width      : 100%;
-		min-height : 100%;
-		display    : flex;
+		position: absolute;
+		width: 100%;
+		min-height: 100%;
+		display: flex;
 		align-items: center;
-		opacity    : 0;
+		opacity: 0;
 
 		&.scrolling {
 			z-index: 2;

@@ -4,15 +4,15 @@
 	display: none !important;
 }
 
-.dekstop {
+.desktop {
 	@media (max-width: 1024px) {
-		display: none;
+		display: none!important;
 	}
 }
 
 .mobile {
 	@media (min-width: 1025px) {
-		display: none;
+		display: none!important;
 	}
 }
 

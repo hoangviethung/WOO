@@ -20,20 +20,24 @@
 		</div>
 		<header>
 			<div class="container">
-				<div class="main-nav">
-					<ul class="nav-list">
-						<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">About</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Our services</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Research</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Search</a></li>
-					</ul>
+				<div class="row">
+					<nav class="social mobile"><a href="#"><img class="svg" data-src="./assets/icons/pinterest.svg"></a><a href="#"><img class="svg" data-src="./assets/icons/facebook.svg"></a><a href="#"><img class="svg" data-src="./assets/icons/twitter.svg"></a></nav>
+					<div class="main-nav">
+						<ul class="nav-list">
+							<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">About</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Our services</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Research</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Search</a></li>
+						</ul>
+					</div>
+					<div class="mobile toggle-menu"></div>
 				</div>
 			</div>
 		</header>
 		<main>
-			<div class="widget-container">
+			<div class="widget-container desktop">
 				<div class="container">
 					<div class="widget-wrapper widget-left">
 						<p>Follow us</p>
@@ -43,7 +47,8 @@
 				</div>
 			</div>
 			<div class="canvas-background img-particle">
-				<div class="canvas-wrapper"></div>
+				<div id="particles-js"></div>
+				<canvas class="canvas-wrapper desktop" id="canvas-wrapper"></canvas>
 				<div class="canvas-img mobile"><img class="svg" data-src="./assets/woo.svg" alt="" srcset=""></div>
 			</div>
 			<div class="fp-container">
@@ -62,20 +67,23 @@
 							</div>
 						</div>
 					</section>
-					<section class="fp-section fp-section-2" fp-title="Strategy" fp-background="rgba(241, 102, 127,.5)">
+					<section class="fp-section fp-section-2" fp-title="Strategy" fp-background="url(assets/background_2.png)">
 						<div class="woo-index">
 							<div class="container">
-								<div class="row ai-c">
+								<div class="row ai-c jc-c">
 									<div class="col-lg-4 col-2xl-5">
 										<div class="character-icon">
 											<video class="character-w video" autoplay muted loop>
 												<source src="./assets/videos/video_1.mp4">
 											</video>
 										</div>
+										<div class="section-title mobile">
+											<h2>Strategy</h2>
+										</div>
 									</div>
-									<div class="col-lg-8 col-2xl-7">
+									<div class="col-lg-7 col-2xl-7">
 										<div class="content">
-											<div class="section-title">
+											<div class="section-title desktop">
 												<h2>Strategy</h2>
 											</div>
 											<div class="section-description">
@@ -88,13 +96,13 @@
 							</div>
 						</div>
 					</section>
-					<section class="fp-section fp-section-3" fp-title="Creative" fp-background="rgba(255, 255, 255,1)">
+					<section class="fp-section fp-section-3" fp-title="Creative" fp-background="url(assets/background_3.png)">
 						<div class="woo-index">
 							<div class="container">
-								<div class="row ai-c">
-									<div class="col-lg-8 col-2xl-7">
+								<div class="row ai-c jc-c">
+									<div class="col-lg-7 col-2xl-7">
 										<div class="content">
-											<div class="section-title">
+											<div class="section-title desktop">
 												<h2>Creative</h2>
 											</div>
 											<div class="section-description">
@@ -113,16 +121,19 @@
 												<source src="./assets/videos/video_1.mp4">
 											</video>
 										</div>
+										<div class="section-title mobile">
+											<h2>Creative</h2>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</section>
-					<section class="fp-section fp-section-4" fp-title="Media" fp-background="rgba(241, 102, 127,.5)">
+					<section class="fp-section fp-section-4" fp-title="Media" fp-background="url(assets/background_4.png)">
 						<div class="woo-index">
 							<div class="container">
-								<div class="row ai-c">
-									<div class="col-lg-3"></div>
+								<div class="row ai-c jc-c">
+									<div class="col-lg-1 col-2xl-3"></div>
 									<div class="col-lg-4">
 										<div class="character-icon">
 											<video class="character-o video" autoplay muted loop>
@@ -148,23 +159,27 @@
 							</div>
 						</div>
 					</section>
-					<section class="fp-section fp-section-5" fp-title="Social" fp-background="rgba(255, 255, 255,1)">
+					<section class="fp-section fp-section-5" fp-title="Social" fp-background="url(assets/background_5.png)">
 						<div class="woo-index">
 							<div class="container">
 								<div class="row ai-c">
 									<div class="col-lg-2"></div>
-									<div class="col-lg-5">
+									<div class="col-lg-4 col-2xl-5">
 										<div class="background-circle">
 											<div class="character-icon">
 												<video class="character-m video" autoplay muted loop>
 													<source src="./assets/videos/video_1.mp4">
 												</video>
 											</div>
+											<div class="section-title mobile">
+												<h2>Social</h2>
+												<h3>Outreach</h3>
+											</div>
 										</div>
 									</div>
 									<div class="col-lg-auto">
 										<div class="content">
-											<div class="section-title">
+											<div class="section-title desktop">
 												<h2>Social</h2>
 												<h3>Outreach</h3>
 											</div>

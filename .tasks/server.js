@@ -21,7 +21,8 @@ import {
 	cssTask
 } from "./css"
 import {
-	copyAssets
+	copyAssets,
+	copyJson
 } from "./copy";
 import {
 	cleanAssets
@@ -59,6 +60,9 @@ const server = () => {
 		"src/assets/**/**.{svg,png,jpg,jpeg,gif,mp4}"
 	], series(cleanAssets, copyAssets));
 
+	watch([
+		"src/js/**.json"
+	], series(copyJson));
 
 	watch([
 		"vendors/**/**.css",

@@ -20,7 +20,16 @@ const copyFonts = () => {
 		.pipe(dest("_dist/fonts"));
 };
 
+const copyJson = () => {
+	return src('src/js/**.json', {
+			allowEmpty: true
+		})
+		.pipe(dest("_dist/js"));
+
+}
+
 module.exports = {
 	copyAssets,
-	copyFonts
+	copyFonts,
+	copyJson
 };

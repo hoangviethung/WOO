@@ -5,12 +5,13 @@ module.exports = class Fullpage {
 	currentIndex = 0;
 	opts = {
 		speed: 1000,
-		section: '.fp-section'
+		section: '.fp-section',
+		on: {
+			afterChangeSection: (e) => {},
+			beforeChangeSection: (e) => {},
+			init: (e) => {},
+		}
 	};
-	on = {
-		afterChangeSection: (e) => {},
-		beforeChangeSection: (e) => {},
-	}
 
 	constructor(selector, opts) {
 		Object.keys(opts).map(key => {
@@ -128,6 +129,7 @@ module.exports = class Fullpage {
 	}
 
 	init() {
+		this.opts.on.init(this);
 		this.renderHTML();
 		this.checkDirectionMouseScroll();
 	}

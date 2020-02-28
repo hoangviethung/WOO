@@ -9,16 +9,12 @@ module.exports = () => {
 		let counter = 0;
 
 		const turnOffLoadingScreen = () => {
-			if (loading) {
-				loading.style.opacity = '0';
-				setTimeout(() => {
-					resolve();
-				}, 500);
-				setTimeout(function() {
-					loading.parentNode.removeChild(loading);
-					body.classList.add('show-page');
-				}, 1000)
-			}
+			loading.style.opacity = '0';
+			setTimeout(function() {
+				resolve();
+				loading.parentNode.removeChild(loading);
+				body.classList.add('show-page');
+			}, 1000)
 		};
 
 		const progressing = () => {

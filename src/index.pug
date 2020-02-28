@@ -6,7 +6,7 @@ block var
 
 block banner,breadcrumb
 block main
-	.widget-container
+	.widget-container.desktop
 		.container
 			.widget-wrapper.widget-left
 				p Follow us
@@ -19,7 +19,8 @@ block main
 						img.svg(data-src="./assets/icons/twitter.svg")
 			.widget-right
 	.canvas-background.img-particle
-		.canvas-wrapper
+		#particles-js
+		canvas.canvas-wrapper#canvas-wrapper.desktop
 		.canvas-img.mobile
 			img.svg(data-src="./assets/woo.svg", alt="", srcset="")
 	.fp-container
