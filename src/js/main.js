@@ -229,5 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('resize', () => {
 	setHeight('.background-circle', 1);
-	setSizeForCharacterImage();
+	if (window.innerWidth > 1024) {
+		setSizeForCharacterImage();
+	}
 })
