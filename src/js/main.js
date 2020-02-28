@@ -211,15 +211,15 @@ document.addEventListener('DOMContentLoaded', () => {
 	const particleJs = document.getElementById('particles-js');
 	particleJs.style.transition = 'all linear 1s';
 	particleJs.style.opacity = 0;
-	getSvg();
 	ImageParticle();
 	toggleHeader();
 	setSizeForCharacterImage();
-	
+
 	Loading().then(() => {
 		particleJs.style.opacity = 1;
 		backgroundParticle();
 	})
+	getSvg();
 
 	if (window.innerWidth > 1024) {
 		setHeight('.background-circle', 1);

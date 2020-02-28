@@ -9,9 +9,9 @@ module.exports = () => {
 		let counter = 0;
 
 		const turnOffLoadingScreen = () => {
-			loading.style.opacity = '0';
+			loading.classList.add('closing');
+			resolve();
 			setTimeout(function() {
-				resolve();
 				loading.parentNode.removeChild(loading);
 				body.classList.add('show-page');
 			}, 1000)
@@ -19,10 +19,16 @@ module.exports = () => {
 
 		const progressing = () => {
 			let n = Math.round(100 / imagesLength * (counter += 1));
-			progressBar.style.width = `${n}%`;
-			progressPercentage.innerHTML = `${n}`;
+			if (progressBar) {
+				progressBar.style.width = `${n}%`;
+			}
+			if (progressPercentage) {
+				progressPercentage.innerHTML = `${n}`;
+			}
 			if (counter === imagesLength) {
-				return turnOffLoadingScreen();
+				setTimeout(() => {
+					return turnOffLoadingScreen();
+				}, 2000);
 			}
 		};
 
@@ -30,6 +36,7 @@ module.exports = () => {
 			if (imagesLength === 0) {
 				return turnOffLoadingScreen();
 			} else {
+				loading.classList.add('loading')
 				for (let i = 0; i < imagesLength; i++) {
 					let img = new Image;
 					img.onload = progressing;

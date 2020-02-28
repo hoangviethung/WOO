@@ -4,7 +4,7 @@ module.exports = (selector = 'img.svg') => {
 
 	svgArray.forEach(svg => {
 
-		const svgUrl = svg.getAttribute('data-src');
+		const svgUrl = svg.getAttribute('src') || svg.getAttribute('data-src');
 		const svgClassList = Array.from(svg.classList);
 		const svgRequest = new XMLHttpRequest();
 
@@ -22,6 +22,8 @@ module.exports = (selector = 'img.svg') => {
 		svgRequest.onerror = () => {
 			svg.setAttribute('src', svgUrl)
 		}
+		console.log(svgUrl);
+
 		svgRequest.send();
 	})
 }

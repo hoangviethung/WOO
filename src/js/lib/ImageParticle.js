@@ -151,11 +151,11 @@ module.exports = () => {
 		setTimeout(() => {
 			let x = setInterval(() => {
 				drawCircleShapes();
-				if (i == 1210) {
+				if (i == 2010) {
 					clearInterval(x);
 				}
 			}, 10);
-		}, 1000);
+		}, 2000);
 	}
 
 	const setSizeCanvas = () => {
@@ -200,7 +200,7 @@ module.exports = () => {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		if (i >= 1000) {
 			ctx.drawImage(img, (window.innerWidth - img.width) / 2, (window.innerHeight - img.height) / 2)
-			ctx.globalAlpha = (i - 1000) / 200;
+			ctx.globalAlpha = (i - 1000) / 1000;
 		} else {
 			currentPositionsPieces.forEach((item, index) => {
 				ctx.beginPath();
