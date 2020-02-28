@@ -25,11 +25,18 @@ const copyJson = () => {
 			allowEmpty: true
 		})
 		.pipe(dest("_dist/js"));
+}
 
+const copyFavicon = () => {
+	return src('favicon.ico', {
+			allowEmpty: true
+		})
+		.pipe(dest("_dist"));
 }
 
 module.exports = {
 	copyAssets,
 	copyFonts,
-	copyJson
+	copyJson,
+	copyFavicon
 };

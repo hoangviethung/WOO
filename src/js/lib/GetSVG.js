@@ -22,7 +22,6 @@ module.exports = (selector = 'img.svg') => {
 		svgRequest.onerror = () => {
 			svg.setAttribute('src', svgUrl)
 		}
-		console.log(svgUrl);
 
 		svgRequest.send();
 	})

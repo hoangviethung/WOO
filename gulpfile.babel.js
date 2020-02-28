@@ -28,7 +28,8 @@ import {
 import {
 	copyFonts,
 	copyJson,
-	copyAssets
+	copyAssets,
+	copyFavicon,
 } from "./.tasks/copy";
 
 
@@ -37,6 +38,7 @@ exports.default = series(
 	copyFonts,
 	copyAssets,
 	copyJson,
+	copyFavicon,
 	jsCore,
 	cssCore,
 	cssTask,
