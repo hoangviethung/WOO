@@ -8,16 +8,20 @@ block banner,breadcrumb
 block main
 	.widget-container.desktop
 		.container
-			.widget-wrapper.widget-left
-				p Follow us
-				nav
-					a(href="#")
-						img.svg(data-src="./assets/icons/pinterest.svg")
-					a(href="#")
-						img.svg(data-src="./assets/icons/facebook.svg")
-					a(href="#")
-						img.svg(data-src="./assets/icons/twitter.svg")
-			.widget-right
+			.row
+				.widget-wrapper.widget-left
+					p Follow us
+					nav
+						a(href="#")
+							img.svg(data-src="./assets/icons/pinterest.svg")
+						a(href="#")
+							img.svg(data-src="./assets/icons/facebook.svg")
+						a(href="#")
+							img.svg(data-src="./assets/icons/twitter.svg")
+				.widget-right.ml-at.desktop
+					a(href="javascript:void(0)") Prev
+					| |
+					a(href="javascript:void(0)") Next
 	.canvas-background.img-particle
 		#particles-js
 		canvas.canvas-wrapper#canvas-wrapper.desktop

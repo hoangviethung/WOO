@@ -70,22 +70,10 @@
 			}
 		}
 	}
-}
 
-.img-canvas {
-	display: flex;
-	flex-wrap: wrap;
-	margin: 0 auto;
-
-	*:not(canvas) {
-		opacity: 0;
-		display: none;
-	}
-
-	canvas {
-		border-radius: 50%;
-		background-color: map-get($mau, main);
-		// width        : 29px;
-		// height       : 29px;
+	.widget-right {
+		a {
+			margin: 0 20px;
+		}
 	}
 }
