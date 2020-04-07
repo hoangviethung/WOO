@@ -1,45 +1,46 @@
-extends _components/_layout/_layout.pug
+extends _templates/_layout/_layout.pug
 
 block var
-	- let title = 'Index';
+	- let title = 'Page | Index';
 	- let bodyClass = 'index-page';
 
+block loading
+	include _templates/_layout/_loading
 block banner,breadcrumb
 block main
-	.widget-container.desktop
-		.container
-			.row
-				.widget-wrapper.widget-left
-					p Follow us
-					nav
-						a(href="#")
-							img.svg(data-src="./assets/icons/pinterest.svg")
-						a(href="#")
-							img.svg(data-src="./assets/icons/facebook.svg")
-						a(href="#")
-							img.svg(data-src="./assets/icons/twitter.svg")
-				.widget-right.ml-at.desktop
-					a(href="javascript:void(0)") Prev
-					| |
-					a(href="javascript:void(0)") Next
-	.canvas-background.img-particle
-		#particles-js
-		canvas.canvas-wrapper#canvas-wrapper.desktop
-		.canvas-img.mobile
-			img.svg(data-src="./assets/woo.svg", alt="", srcset="")
-	.fp-container
-		.fp-background
-		.fp-layer
-			.layer-video
-				video(src="./assets/videos/video.mp4")
-			.text-layer
-				.layer-letter-o
-					span
-					span
-				.layer-background
-		.fp-wrapper
-			include _components/index/i-1
-			include _components/index/i-2
-			include _components/index/i-3
-			include _components/index/i-4
-			include _components/index/i-5
+	.fp-layer-background-color
+		.fp-layer-color.fp-layer-home
+		.fp-layer-color.fp-layer-strategy
+		.fp-layer-color.fp-layer-creative
+		.fp-layer-color.fp-layer-media
+		.fp-layer-color.fp-layer-social
+	.fp-layer-video-mask
+		.fp-layer-video
+			//- video(src="./assets/video.mkv" muted autoplay playsinline loop)
+			iframe(src="https://www.youtube.com/embed/BDCU5OFXZ2c?controls=0&amp;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+		.fp-layer-text
+			.container
+				.letter.letter-none
+				.letter.letter-w
+					svg(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', width='656.104', height='519.49', viewBox='0 0 656.104 519.49')
+						path(d='M328.073,350.312l-99.7,169.178L0,21.738H156.763L225.4,178.793,328.073,0,430.7,178.793,499.341,21.738H656.1L427.732,519.49Z')
+				.letter.letter-o.letter-o-1
+					svg(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', width='520.494', height='520.494', viewBox='0 0 520.494 520.494')
+						path(d='M260.247,0C116.533,0,0,116.533,0,260.247S116.533,520.494,260.247,520.494,520.494,403.961,520.494,260.247,403.961,0,260.247,0Zm0,334.6A74.356,74.356,0,1,1,334.6,260.247,74.362,74.362,0,0,1,260.247,334.6Z')
+				.letter.letter-o.letter-o-2
+					svg(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', width='520.494', height='520.494', viewBox='0 0 520.494 520.494')
+						path(d='M260.247,0C116.533,0,0,116.533,0,260.247S116.533,520.494,260.247,520.494,520.494,403.961,520.494,260.247,403.961,0,260.247,0Zm0,334.6A74.356,74.356,0,1,1,334.6,260.247,74.362,74.362,0,0,1,260.247,334.6Z')
+				.letter.letter-w
+					svg(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', width='641.372', height='488.619', viewBox='0 0 641.372 488.619')
+						path(d='M320.706,146.173,418.128,0,641.372,486.535H488.129l-67.1-153.488L320.706,488.619,220.343,333.047l-67.1,153.488H0L223.244,0Z', fill='url(#a)')
+	.fp-layer-particle-background
+		.particle-background#particle-background
+	//- .fp-layer-particle-image#particle-image
+	#fullpage.fp-container
+		include _templates/index/i-1
+		include _templates/index/i-2
+		include _templates/index/i-3
+		include _templates/index/i-4
+		include _templates/index/i-5
+block scripts
+	//- script(src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js")

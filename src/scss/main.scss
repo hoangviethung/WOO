@@ -1,7 +1,6 @@
-@import 'abstracts/main';
-@import 'lib/main';
-@import 'globals/main';
-@import 'layouts/main';
-
+@import '_abstracts/main';
+@import '_globals/main';
+@import '_layouts/main';
 
 @import 'pages/index/main';
+@import 'pages/map/main';

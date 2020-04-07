@@ -1,11 +1,243 @@
-@import "./i-1.scss";
-@import "./i-2.scss";
-@import "./i-3.scss";
-@import "./i-4.scss";
-@import "./i-5.scss";
+@import 'i-1';
 
-.woo-index {
+.fp-layer-video-mask {
+	mix-blend-mode: multiply;
+}
+
+.fp-layer-background-color {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
+	.fp-layer-color {
+		width: 100%;
+		height: 100%;
+		background-position: center;
+		background-size: cover;
+		opacity: 0;
+		visibility: hidden;
+		transition: all linear 1s;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		&.active {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	.fp-layer-strategy {
+		background-image: url(../assets/index/background_strategy.png);
+	}
+
+	.fp-layer-creative {
+		background-image: url(../assets/index/background_creative.png);
+	}
+
+	.fp-layer-media {
+		background-image: url(../assets/index/background_media.png);
+	}
+
+	.fp-layer-social {
+		background-image: url(../assets/index/background_social.png);
+	}
+}
+
+.fp-layer-video {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
+	iframe,
+	video {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.fp-layer-text {
+	position: absolute;
 	width: 100%;
+	height: 100%;
+	background-color: white;
+	mix-blend-mode: screen;
+
+	.container {
+		height: 100%;
+	}
+
+	.row {
+		align-items: center;
+		height: 100%;
+	}
+}
+
+.letter {
+	display: none;
+
+	svg {
+		width: 100%;
+		height: 100%;
+
+		path {
+			stroke: rgba(map-get($mau, main), 0.75);
+			stroke-width: 1px;
+			stroke-dashoffset: 4560;
+			stroke-dasharray: 4560;
+			fill: transparent;
+		}
+	}
+
+	&.letter-w {
+		width: 40%;
+		position: absolute;
+		top: 50%;
+		left: 0%;
+		margin-left: 10px;
+		transform: translateY(-50%);
+	}
+
+	&.letter-o-1 {
+		width: (400%/12);
+		position: absolute;
+		top: 50%;
+		right: 16%;
+		margin-right: 10px;
+		transform: translateY(-50%);
+	}
+
+	&.letter-o-2 {
+		width: (400%/12);
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-right: 10px;
+		transform: translate(-50%, -50%);
+	}
+
+	&.letter-m {
+		width: (400%/12);
+		position: absolute;
+		top: 50%;
+		left: 16%;
+		margin-left: 10px;
+		transform: translateY(-50%);
+	}
+
+	&.active {
+		display: block;
+		svg {
+			path {
+				animation: characterStroke 1s linear forwards,
+					characterFill 0.75s 0.75s linear forwards;
+			}
+		}
+	}
+}
+
+.fp-layer-particle-image {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.fp-layer-particle-background {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.fp-container {
+	z-index: 1;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+
+	.fp-content {
+		height: 100%;
+		opacity: 0;
+		visibility: hidden;
+		transition: all 1s ease;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		left: 0;
+		z-index: 0;
+
+		.container,
+		.row {
+			height: 100%;
+		}
+
+		.section-title {
+			transition: all 0.4s ease-in-out;
+			transform: translateX(35px);
+			opacity: 0;
+		}
+
+		.section-description {
+			transition: all 0.4s ease-in-out;
+			transform: translateX(35px);
+			opacity: 0;
+			transition-delay: 0.35s;
+
+			+ .section-description {
+				transition-delay: 0.7s;
+			}
+		}
+		&.changeing {
+			z-index: 2;
+		}
+		&.active {
+			opacity: 1;
+			z-index: 1;
+			visibility: visible;
+			.section-title,
+			.section-description {
+				transform: translateX(0);
+				opacity: 1;
+			}
+		}
+	}
+
+	.content-strategy {
+		.section-title {
+			h2 {
+				color: white;
+			}
+		}
+
+		.section-description {
+			p {
+				color: white;
+			}
+		}
+	}
+
+	.content-creative {
+		.section-title {
+			h2 {
+				color: map-get($mau, main);
+			}
+		}
+	}
 }
 
 .section-title {
@@ -17,7 +249,6 @@
 		padding-right: 70px;
 		font-size: 170px;
 		line-height: 1.25;
-		color: white;
 
 		&:before {
 			content: '';
@@ -46,7 +277,7 @@
 	@media (max-width: 1024.98px) {
 		h2 {
 			font-size: 90px;
-			color: map-get($mau, main)
+			color: map-get($mau, main);
 		}
 	}
 
@@ -81,7 +312,6 @@
 	}
 
 	@media (max-width: 1024.98px) {
-
 		h2 {
 			font-size: 50px;
 			padding-right: 45px;
@@ -105,7 +335,6 @@
 	}
 
 	@media (max-width: 767.98px) {
-
 		h2 {
 			font-size: 32px;
 		}
@@ -119,7 +348,6 @@
 .section-description {
 	p {
 		font-size: 42px;
-
 
 		@media (max-width: 1599.98px) {
 			font-size: 38px;
@@ -144,11 +372,5 @@
 		@media (max-width: 575.98px) {
 			font-size: 18px;
 		}
-	}
-}
-
-.img-particle {
-	.canvas-wrapper {
-		z-index: 2;
 	}
 }

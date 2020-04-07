@@ -1,49 +1,21 @@
-import {
-	series,
-} from "gulp";
+import { series, parallel } from 'gulp'
 
 // Import tasks
-import {
-	server
-} from "./.tasks/server";
-import {
-	jsTask,
-	jsTask2
-} from "./.tasks/script";
-import {
-	pugTask
-} from "./.tasks/html";
-import {
-	cssTask
-} from "./.tasks/css";
-import {
-	jsCore
-} from "./.tasks/core-js";
-import {
-	cssCore
-} from "./.tasks/core-css";
-import {
-	cleanDist
-} from "./.tasks/clean";
-import {
-	copyFonts,
-	copyJson,
-	copyAssets,
-	copyFavicon,
-} from "./.tasks/copy";
-
+import { cleanDist } from './_tasks/clean'
+import { copyFavicon, copyFonts, copyAssets } from './_tasks/copy'
+import { fakeAPITask } from './_tasks/api'
+import { jsTask, jsTask2 } from './_tasks/script'
+import { cssCore } from './_tasks/core-css'
+import { jsCore } from './_tasks/core-js'
+import { cssTask } from './_tasks/css'
+import { htmlTask } from './_tasks/html'
+import { server } from './_tasks/server'
 
 exports.default = series(
 	cleanDist,
-	copyFonts,
-	copyAssets,
-	copyJson,
-	copyFavicon,
-	jsCore,
-	cssCore,
-	cssTask,
-	jsTask,
-	jsTask2,
-	pugTask,
-	server,
+	parallel(copyFavicon, copyFonts, copyAssets, fakeAPITask),
+	parallel(cssCore, jsCore),
+	parallel(cssTask, jsTask, jsTask2),
+	htmlTask,
+	server
 )

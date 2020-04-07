@@ -1,20 +1,44 @@
-.fp-section-1 {
+.content-home {
+	position: relative;
+}
 
-	.container,
-	.row {
-		height: 100%;
+
+#text-particle {
+	height: 100vh;
+	width: 100%;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	z-index: 2;
+}
+
+
+.ch-slogan {
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+	left: 0;
+	text-align: center;
+	top: 50%;
+	pointer-events: none;
+
+	h2 {
+		font-size: 80px;
+		font-weight: 400;
+		letter-spacing: 15px;
+		text-transform: uppercase;
+		font-family: map-get($font, sub);
+		margin-bottom: 15px;
 	}
 
-	.slogan {
-		margin-top: 70px;
-
-		h1 {
-			font-size: 42px;
-		}
-	}
-
-	.img,
-	.slogan {
-		display: none;
+	h4 {
+		font-size: 25px;
+		font-family: map-get($font, sub);
+		font-size: 25px;
+		color: #707070;
+		letter-spacing: 2px;
+		font-weight: 400;
+		text-transform: uppercase;
 	}
 }

@@ -1,136 +1,78 @@
-import gsap from "gsap";
-
-module.exports = class Fullpage {
-	canScroll = true;
-	currentIndex = 0;
-	opts = {
-		speed: 1000,
-		section: '.fp-section',
-		on: {
-			afterChangeSection: (e) => {},
-			beforeChangeSection: (e) => {},
-			init: (e) => {},
-		}
-	};
-
-	constructor(selector, opts) {
-		Object.keys(opts).map(key => {
-			this.opts[key] = opts[key]
-		});
-		this.$el = document.querySelector(selector);
-		this.$section = Array.from(this.$el.querySelectorAll(this.opts.section));
-		Object.assign(this.opts, opts)
-		// Initialize
-		this.init();
+class Fullpage {
+	slideLength
+	state = {
+		currentIndex: 0,
+		nextIndex: 0,
+		canScroll: true,
 	}
 
-	renderHTML() {
-		this.$section.forEach((section, index) => {
-			section.setAttribute('fp-index', index);
-			if (index === 0) {
-				this.currentIndex = index;
-				section.setAttribute('fp-active', true);
-				section.classList.add('active');
-			} else {
-				section.setAttribute('fp-active', false);
-			}
-		})
-	}
-
-	checkDirectionMouseScroll() {
-		document.addEventListener('wheel', e => {
-			const loading = document.getElementById('loading-container');
-
-			if (!loading) {
-
-				let scrollDirection;
-
-				if (this.canScroll) {
-
-					this.canScroll = false;
-
-					if (e.deltaY > 0) {
-						scrollDirection = 'down';
-					} else {
-						scrollDirection = 'up';
-					}
-
-					this.checkNextSectionAndDirection(scrollDirection);
-
-					setTimeout(() => {
-						this.canScroll = true;
-					}, this.opts.speed + 500);
-				}
-			}
-		});
-	}
-
-	checkNextSectionAndDirection(scrollDirection) {
-		const direction = scrollDirection;
-		let currentSection = this.$el.querySelector('[fp-active="true"]');
-		let nextSection;
-
-		if (direction == 'up') {
-			nextSection = currentSection.previousElementSibling;
+	constructor(selector) {
+		this.selector = document.querySelector(selector)
+		if (this.selector) {
+			this.slides = Array.from(
+				this.selector.querySelectorAll('.fp-content')
+			)
 		} else {
-			nextSection = currentSection.nextElementSibling;
-		}
-
-		if (nextSection) {
-			this.changeSlideEffect(currentSection, nextSection, direction, this.opts.on.beforeChangeSection, this.opts.on.afterChangeSection)
+			console.log('HTML Fullpage sai kìa')
 		}
 	}
 
-	changeSlideEffect(currentSect, nextSect, direction, beforeChangeSection, afterChangeSection) {
-		if (beforeChangeSection) {
-			beforeChangeSection(nextSect, this.currentIndex);
-		}
-		nextSect.classList.add('scrolling');
-		gsap.fromTo(currentSect, {
-			x: '0%',
-		}, {
-			duration: this.opts.speed / 1000,
-			x: () => {
-				if (direction == 'down') {
-					return '-100%';
-				} else {
-					return '100%'
-				}
-			},
-			onComplete: () => {
-				currentSect.classList.remove('active');
-				currentSect.removeAttribute('style');
+	init(cb) {
+		this.slides.forEach((slide, index) => {
+			this.slides[index].setAttribute('fp-index', index)
+			if (index === 0) {
+				this.slides[index].classList.add('active')
 			}
 		})
-		gsap.fromTo(nextSect, {
-			x: () => {
-				if (direction == 'down') {
-					return '100%';
+		this.slideLength = this.slides.length
+		if (typeof cb == 'function') {
+			cb(this)
+		}
+		// Set event handler
+		this.onScroll()
+		this.onClick()
+	}
+
+	onScroll() {
+		document.addEventListener('wheel', (e) => {
+			if (this.state.canScroll) {
+				this.state.canScroll = false
+				if (e.deltaY > 0) {
+					if (this.state.nextIndex < this.letters.length - 1) {
+						this.state.nextIndex += 1
+					}
 				} else {
-					return '-100%'
+					if (this.state.nextIndex > 0) {
+						this.state.nextIndex -= 1
+					}
 				}
-			},
-		}, {
-			duration: this.opts.speed / 1000,
-			x: '0%',
-			onComplete: () => {
-				nextSect.classList.remove('scrolling');
-				nextSect.classList.add('active');
-				this.$section.forEach(section => {
-					section.setAttribute('fp-active', false)
-				})
-				nextSect.setAttribute('fp-active', true)
-				this.currentIndex = Number(nextSect.getAttribute('fp-index'));
-				if (afterChangeSection) {
-					afterChangeSection(nextSect, this.currentIndex);
-				}
+				this.changeSlide()
+				setTimeout(() => {
+					this.state.canScroll = true
+				}, 2000)
 			}
 		})
 	}
+	onClick() {}
 
-	init() {
-		this.opts.on.init(this);
-		this.renderHTML();
-		this.checkDirectionMouseScroll();
+	changeSlide(cb) {
+		const _this = this
+		if (this.state.currentIndex != this.state.nextIndex) {
+			this.slides[this.state.nextIndex].classList.add('changing')
+			this.slides[this.state.currentIndex].classList.remove('active')
+			this.letters[this.state.currentIndex].classList.remove('active')
+			this.backgrounds[this.state.currentIndex].classList.remove('active')
+			setTimeout(() => {
+				_this.slides[_this.state.nextIndex].classList.remove('changing')
+				_this.slides[_this.state.nextIndex].classList.add('active')
+				_this.letters[_this.state.nextIndex].classList.add('active')
+				_this.backgrounds[_this.state.nextIndex].classList.add('active')
+				_this.state.currentIndex = _this.state.nextIndex
+			}, 500)
+		}
 	}
+}
+
+module.exports = {
+	Fullpage,
 }

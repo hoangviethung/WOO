@@ -1,0 +1,17 @@
+@keyframes background {
+	to {
+		background-position-x: -100%;
+	}
+}
+
+@keyframes characterStroke {
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes characterFill {
+	to {
+		fill: rgba(0, 0, 0, 1)
+	}
+}
