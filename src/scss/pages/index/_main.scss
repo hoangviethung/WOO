@@ -1,4 +1,8 @@
 @import 'i-1';
+@import 'i-2';
+@import 'i-3';
+@import 'i-4';
+@import 'i-5';
 
 .fp-layer-video-mask {
 	mix-blend-mode: multiply;
@@ -140,17 +144,6 @@
 	}
 }
 
-.fp-layer-particle-image {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
 .fp-layer-particle-background {
 	position: fixed;
 	width: 100%;
@@ -160,6 +153,11 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	canvas {
+		width: 100%;
+		height: 100%;
+	}
 }
 
 .fp-container {
@@ -169,73 +167,51 @@
 	height: 100%;
 	top: 0;
 	left: 0;
+}
 
-	.fp-content {
+.fp-content {
+	height: 100%;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 1s ease;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	left: 0;
+	z-index: 0;
+
+	.container,
+	.row {
 		height: 100%;
+	}
+
+	.section-title {
+		transition: all 0.4s ease-in-out;
+		transform: translateX(35px);
 		opacity: 0;
-		visibility: hidden;
-		transition: all 1s ease;
-		position: absolute;
-		top: 0;
-		width: 100%;
-		left: 0;
-		z-index: 0;
+	}
 
-		.container,
-		.row {
-			height: 100%;
+	.section-description {
+		transition: all 0.4s ease-in-out;
+		transform: translateX(35px);
+		opacity: 0;
+		transition-delay: 0.35s;
+
+		+ .section-description {
+			transition-delay: 0.7s;
 		}
-
-		.section-title {
-			transition: all 0.4s ease-in-out;
-			transform: translateX(35px);
-			opacity: 0;
-		}
-
+	}
+	&.changeing {
+		z-index: 2;
+	}
+	&.active {
+		opacity: 1;
+		z-index: 1;
+		visibility: visible;
+		.section-title,
 		.section-description {
-			transition: all 0.4s ease-in-out;
-			transform: translateX(35px);
-			opacity: 0;
-			transition-delay: 0.35s;
-
-			+ .section-description {
-				transition-delay: 0.7s;
-			}
-		}
-		&.changeing {
-			z-index: 2;
-		}
-		&.active {
+			transform: translateX(0);
 			opacity: 1;
-			z-index: 1;
-			visibility: visible;
-			.section-title,
-			.section-description {
-				transform: translateX(0);
-				opacity: 1;
-			}
-		}
-	}
-
-	.content-strategy {
-		.section-title {
-			h2 {
-				color: white;
-			}
-		}
-
-		.section-description {
-			p {
-				color: white;
-			}
-		}
-	}
-
-	.content-creative {
-		.section-title {
-			h2 {
-				color: map-get($mau, main);
-			}
 		}
 	}
 }
