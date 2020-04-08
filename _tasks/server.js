@@ -14,6 +14,26 @@ import { htmlTask } from './html'
 import { cssCore } from './core-css'
 import { cssTask } from './css'
 
+const imageChangeTask = (path, stats) => {
+	const filePathnameGlob = path.replace(/[\/\\]/g, '/')
+	const destPathname = filePathnameGlob
+		.replace('src', '_dist')
+		.replace(
+			filePathnameGlob.split('/')[filePathnameGlob.split('/').length - 1],
+			''
+		)
+	del(filePathnameGlob.replace('src', '_dist'))
+	console.log(`Copy: "${filePathnameGlob}"   =====>   "${destPathname}"`)
+	return src(filePathnameGlob).pipe(dest(destPathname))
+}
+
+const imageRemoveTask = (path, stats) => {
+	const filePathnameGlob = path.replace(/[\/\\]/g, '/')
+	const destPathname = filePathnameGlob.replace('src', '_dist')
+	console.log(`Deleted: "${destPathname}"`)
+	return del(destPathname)
+}
+
 const server = () => {
 	bSync.init({
 		notify: true,
@@ -65,25 +85,16 @@ const server = () => {
 		}
 	)
 
-	watch(['src/assets/**/**.{svg,png,jpg,jpeg,gif,mp4,pdf}']).on(
-		'change',
-		(path, stats) => {
-			const filePathnameGlob = path.replace(/[\/\\]/g, '/')
-			const destPathname = filePathnameGlob
-				.replace('src', '_dist')
-				.replace(
-					filePathnameGlob.split('/')[
-						filePathnameGlob.split('/').length - 1
-					],
-					''
-				)
-			del(filePathnameGlob.replace('src', '_dist'))
-			console.log(
-				`Copy: "${filePathnameGlob}"   =====>   "${destPathname}"`
-			)
-			return src(filePathnameGlob).pipe(dest(destPathname))
-		}
-	)
+	watch(['src/assets/**/**.**'], {
+		ignorePermissionErrors: true,
+		delay: 300,
+		events: 'all',
+	})
+		.on('add', imageChangeTask)
+		.on('change', imageChangeTask)
+		.on('addDir', imageChangeTask)
+		.on('unlink', imageRemoveTask)
+		.on('unlinkDir', imageRemoveTask)
 
 	watch(['src/js/main.js', 'src/js/lib/**.js'], series(jsTask))
 
