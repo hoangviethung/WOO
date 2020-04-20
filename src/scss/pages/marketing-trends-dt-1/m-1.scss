@@ -1,0 +1,103 @@
+.marketing-trends-dt {
+	background-image: url('../assets/marketing/bg_1.png');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding-top: 30px;
+	h2,
+	h1 {
+		font-size: 24px;
+		color: map-get($mau, main);
+	}
+	.content {
+		text-align: justify;
+	}
+	.item {
+		.img {
+			margin-top: 12px;
+			margin: 0 auto;
+			max-width: 220px;
+		}
+		+ .item {
+			margin-top: 30px;
+		}
+		.content {
+			text-align: justify;
+			p {
+				color: #707070;
+				font-size: 14px;
+				margin-top: 10px;
+			}
+		}
+	}
+}
+@media (min-width: 768px) {
+	.marketing-trends-dt {
+		h2,
+		h1 {
+			font-size: 28px;
+		}
+		.item {
+			.content {
+				p {
+					font-size: 16px;
+				}
+			}
+			.img {
+				-ms-flex: 0 0 340px;
+				flex: 0 0 340px;
+				max-width: 340px;
+			}
+		}
+	}
+}
+@media (min-width: 1025px) {
+	.marketing-trends-dt {
+		padding-top: 130px;
+		h2,
+		h1 {
+			font-size: 32px;
+		}
+		.item {
+			+ .item {
+				.d-f {
+					flex-direction: row-reverse;
+				}
+			}
+			.content {
+				-ms-flex-preferred-size: 0;
+				flex-basis: 0;
+				-ms-flex-positive: 1;
+				flex-grow: 1;
+				max-width: 100%;
+				padding: 0 20px;
+			}
+			.img {
+				-ms-flex: 0 0 340px;
+				flex: 0 0 340px;
+				max-width: 340px;
+			}
+		}
+	}
+}
+@media (min-width: 1200px) {
+	.marketing-trends-dt {
+		padding-top: 170px;
+		h2,
+		h1 {
+			font-size: 36px;
+		}
+		.item {
+			.content {
+				p {
+					font-size: 18px;
+				}
+			}
+			.img {
+				-ms-flex: 0 0 390px;
+				flex: 0 0 390px;
+				max-width: 390px;
+			}
+		}
+	}
+}

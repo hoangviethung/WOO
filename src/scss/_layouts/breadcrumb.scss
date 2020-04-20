@@ -1,0 +1,52 @@
+.breadcrumb-wrapper {
+	width: 100%;
+	.breadcrumb {
+		padding-left: 0;
+		list-style-type: none;
+		display: flex;
+
+		li {
+			display: flex;
+			align-items: center;
+
+			a {
+				display: block;
+				font-size: 16px;
+				padding: 18px 0;
+				color: #707070;
+				font-style: narrow;
+			}
+
+			+ li {
+				&:before {
+					background-image: url('../assets/icons/breadcrumb-arrow.svg');
+					display: inline-block;
+					content: '';
+					width: 15px;
+					height: 100%;
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: 7.5px;
+				}
+			}
+			&:last-child {
+				a {
+					color: map-get($mau, main);
+				}
+			}
+		}
+		&.white {
+			li:not(:last-child) {
+				&:before {
+					color: white;
+				}
+				a {
+					color: white;
+				}
+			}
+		}
+	}
+	@media (max-width: 1024.98px) {
+		display: none;
+	}
+}

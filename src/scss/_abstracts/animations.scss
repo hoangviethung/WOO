@@ -12,6 +12,19 @@
 
 @keyframes characterFill {
 	to {
-		fill: rgba(0, 0, 0, 1)
+		fill: rgba(0, 0, 0, 1);
+	}
+}
+
+@keyframes stroke {
+	to {
+		stroke-dashoffset: 0;
+		stroke: rgba(map-get($mau, main), 1);
+	}
+}
+
+@keyframes fill {
+	to {
+		fill: map-get($mau, main);
 	}
 }

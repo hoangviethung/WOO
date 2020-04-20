@@ -1,0 +1,42 @@
+.research-insight-1 {
+	@extend .strategy-detail;
+	background-image: url('../assets/research/bg_1.png');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	.section-title {
+		flex-direction: row-reverse;
+		h2 {
+			color: white;
+			sup {
+				font-size: 45%;
+				left: 60px;
+			}
+			span {
+				display: inline-block !important;
+				font-size: 84% !important;
+				padding-right: 0!important;
+				left: 60px;
+				position: relative;
+			}
+		}
+	}
+}
+@media (min-width: 1200px) {
+	.research-insight-1 {
+		.section-title {
+			h2 {
+				font-size: 130px;
+			}
+		}
+	}
+}
+
+@media (min-width: 1600px) {
+	.research-insight-1 {
+		.stg-dt__img {
+			max-width: 520px;
+		}
+	}
+}

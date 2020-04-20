@@ -1,0 +1,37 @@
+.our-service-1 {
+	@extend .about-1;
+	.section-title {
+		text-align: right;
+		justify-content: flex-end;
+		h2 {
+			line-height: 0.85;
+			padding-right: 40px;
+			&:before {
+				top: 100%;
+				transform: translateY(-100%);
+				margin-bottom: 10px;
+			}
+			@media (min-width: 1025px) {
+				span{
+					font-size: 77%;
+				}
+			}
+		}
+	}
+	.section-description {
+		margin-top: 15px;
+		padding-right: 12px;
+		padding-left: 0;
+	}
+	.content {
+		display: flex;
+		align-items: center;
+		margin-right: 0;
+	}
+	.img {
+		position: static;
+		-ms-flex: 0 0 100%;
+		-webkit-box-flex: 0;
+		flex: 0 0 100%;
+	}
+}

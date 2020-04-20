@@ -1,0 +1,11 @@
+extends _templates/_layout/_layout.pug
+
+block var
+	- let title = 'Page | Contact';
+	- let bodyClass = 'contact-page';
+
+block loading
+block banner,breadcrumb
+	include _templates/_layout/_breadcrumb
+block main
+	include _templates/contact/c-1.pug

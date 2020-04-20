@@ -1,25 +1,30 @@
 header
 	.container
 		.row
-			nav.social.mobile
-				a(href='#')
-					img.svg(data-src='./assets/icons/pinterest.svg')
-				a(href='#')
-					img.svg(data-src='./assets/icons/facebook.svg')
-				a(href='#')
-					img.svg(data-src='./assets/icons/twitter.svg')
-			.main-nav
-				ul.nav-list
+			//- nav.header__social.mobile
+			//- 	a(href='#')
+			//- 		img.svg(data-src='./assets/icons/pinterest.svg')
+			//- 	a(href='#')
+			//- 		img.svg(data-src='./assets/icons/facebook.svg')
+			//- 	a(href='#')
+			//- 		img.svg(data-src='./assets/icons/twitter.svg')
+			.header__logo
+				a(href="/")
+					img(src="./assets/logo.svg", alt="")
+			.header__main-nav
+				ul.header__nav-list.lst-n.d-f
 					li.nav-item
-						a.nav-link(href='#') Home
+						a.nav-link(href='/') Home
 					li.nav-item
-						a.nav-link(href='#') About
+						a.nav-link(href='/about.html') About
 					li.nav-item
-						a.nav-link(href='#') Our services
+						a.nav-link(href='/our-service.html') Our services
 					li.nav-item
-						a.nav-link(href='#') Research
+						a.nav-link(href='/analysis.html') Analysis
 					li.nav-item
-						a.nav-link(href='#') Contact
-					li.nav-item
-						a.nav-link(href='#') Search
-			.mobile.toggle-menu
+						a.nav-link(href='/contact.html') Contact
+				.header__search
+					input.search__input(placeholder="Tìm kiếm..." type="text")
+					button.search__button.btn.fcc
+						img(src="./assets/icons/magnify.svg")
+			.mobile.header__toggle-menu

@@ -1,16 +1,20 @@
-const Loading = () => {
-	let loading = document.querySelector('#loading-container')
-	let images = document.images
-	let imagesLength = images.length
-	let counter = 0
+export function Loading() {
 	return new Promise((resolve, reject) => {
+		let loading = document.querySelector('#loading-container')
+		let images = document.images
+		let imagesLength = images.length
+		let counter = 0
+		console.log(1);
+		
+
 		function turnOffLoadingScreen() {
+			loading.classList.add('closing')
 			loading.style.opacity = '0'
+			resolve()
 			setTimeout(function () {
 				loading.parentNode.removeChild(loading)
 				document.body.classList.add('show-page')
-				resolve()
-			}, 500)
+			}, 1000)
 		}
 
 		function progressing() {
@@ -27,13 +31,16 @@ const Loading = () => {
 				progressPercentage.innerHTML = `${n}`
 			}
 			if (counter === imagesLength) {
-				return turnOffLoadingScreen()
+				setTimeout(() => {
+					return turnOffLoadingScreen()
+				}, 2000)
 			}
 		}
 		if (loading) {
 			if (imagesLength === 0) {
 				return turnOffLoadingScreen(resolve)
 			} else {
+				loading.classList.add('loading')
 				for (let i = 0; i < imagesLength; i++) {
 					let img = new Image()
 					img.onload = progressing
@@ -43,8 +50,4 @@ const Loading = () => {
 			}
 		}
 	})
-}
-
-module.exports = {
-	Loading,
 }

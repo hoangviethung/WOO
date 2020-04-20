@@ -1,0 +1,12 @@
+extends _templates/_layout/_layout.pug
+
+block var
+	- let title = 'Page | Research Insight';
+	- let bodyClass = 'research-insight-page';
+
+block loading
+block banner,breadcrumb
+	include _templates/_layout/_breadcrumb
+block main
+	include _templates/research-insight/r-1
+	include _templates/research-insight/r-2

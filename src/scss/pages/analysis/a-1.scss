@@ -1,0 +1,21 @@
+.analysis-1 {
+	@media (min-width: 1025px) {
+		.text {
+			padding-right: 60px;
+		}
+		.section-title {
+			margin-right: -40px;
+			h2 {
+				&:before {
+					top: 0%;
+					right: -20px;
+					transform: translateY(-100%);
+					background-image: url(../assets/icons/arrow-title-w.svg);
+				}
+			}
+		}
+		.section-description {
+			text-align: right;
+		}
+	}
+}

@@ -1,0 +1,23 @@
+.sv-creative-1 {
+	padding-top: 30px;
+	.os2__item {
+		+ .os2__item {
+			border-top: 0;
+		}
+	}
+}
+@media (min-width: 1025px) {
+	.sv-creative-1 {
+		padding-top: 122px;
+	}
+}
+@media (min-width: 1200px) {
+	.sv-creative-1 {
+		padding-top: 162px;
+	}
+}
+@media (min-width: 1440px) {
+	.sv-creative-1 {
+		padding-top: 142px;
+	}
+}

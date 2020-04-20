@@ -1,10 +1,16 @@
 {
 	"fonts": ["src/fonts/**"],
 	"js": [
-		"node_modules/jquery/dist/jquery.js",
 		"node_modules/swiper/js/swiper.js",
 		"node_modules/pixi.js/dist/pixi.js",
-		"node_modules/particles.js/particles.js"
+		"node_modules/particles.js/particles.js",
+		"node_modules/jquery/dist/jquery.js",
+		"node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js",
+		"node_modules/wow.js/dist/wow.js"
 	],
-	"css": ["node_modules/swiper/css/swiper.css"]
+	"css": [
+		"node_modules/swiper/css/swiper.css",
+		"node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css",
+		"node_modules/wow.js/css/libs/animate.css"
+	]
 }

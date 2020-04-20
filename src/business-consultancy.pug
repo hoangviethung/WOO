@@ -1,0 +1,11 @@
+extends _templates/_layout/_layout.pug
+
+block var
+	- let title = 'Page | Business Consultancy';
+	- let bodyClass = 'strategy-detail-1-page';
+
+block loading
+block banner,breadcrumb
+	include _templates/_layout/_breadcrumb
+block main
+	include _templates/business-consultancy/b-1

@@ -1,16 +1,25 @@
-import { randomise } from '../utils/utils'
+import { randomise } from '../util/utilities'
 
-function TextParticle(selector) {
-	PIXI.Loader.shared
-		.add('woo', './assets/woo-image.png')
-		.add('dot', './assets/dot.png')
-		.load(drawImage)
-	const text = document.querySelector('.ch-slogan')
+export function TextParticle(selector, cb) {
+	let height =
+		window.innerWidth >= 768 ? window.innerHeight : window.innerHeight / 2
+	if (window.innerWidth >= 768) {
+		PIXI.Loader.shared
+			.add('woo', './assets/woo-image.png')
+			.add('dot', './assets/dot.png')
+			.load(drawImage)
+	} else {
+		PIXI.Loader.shared
+			.add('woo', './assets/woo-image-mobile.png')
+			.add('dot', './assets/dot.png')
+			.load(drawImage)
+	}
+	const text = document.querySelector('.ch__slogan')
 	const textHeight = text.clientHeight
 
 	let app = new PIXI.Application({
 		width: 1920,
-		height: window.innerHeight,
+		height: height,
 		transparent: true,
 		antialias: true,
 		resolution: 1,
@@ -36,9 +45,9 @@ function TextParticle(selector) {
 		particle.random = Math.random()
 		particle.valX = 0
 		particle.valY = 0
-		particle.vitesse = randomise(3, 10) / 500
+		particle.vitesse = randomise(3, 10) / 300
 		particle.degree = Math.random() * 2
-		particle.rayon = Math.random() * 0
+		particle.rayon = randomise(2, 4)
 		particle.direct =
 			Math.random() < 0.5
 				? (particle.vitesse = particle.vitesse * -1)
@@ -64,12 +73,15 @@ function TextParticle(selector) {
 		particle.pixiCircle = new PIXI.Sprite(particle.pointTexture, {
 			x: 0,
 			y: 0,
-			width: 20,
-			height: 20,
+			width: 10,
+			height: 10,
 			transparent: true,
 		})
-		particle.pixiCircle.scale.x = 0.14
-		particle.pixiCircle.scale.y = 0.14
+		particle.pixiCircle.scale.x = particle.pixiCircle.scale.y =
+			Math.random() * 0.25
+		// particle.pixiCircle.scale.y = Math.random() * 0.5
+		// particle.pixiCircle.scale.x = 0.16
+		// particle.pixiCircle.scale.y = 0.16
 		// particle.pixiCircle.alpha = particle.random > .99 ? 1 : 0.8;
 		particle.pixiCircle.alpha = 1
 		stage.addChild(particle.pixiCircle)
@@ -77,8 +89,8 @@ function TextParticle(selector) {
 		particle.initPosition = function (x, y) {
 			this.ox = x
 			this.oy = y
-			this.x = randomise(-100, window.innerWidth + 100)
-			this.y = randomise(-100, window.innerHeight + 100)
+			this.x = randomise(-100, app.view.width + 100)
+			this.y = randomise(-100, app.view.height + 100)
 		}
 
 		particle.move = function () {
@@ -145,7 +157,8 @@ function TextParticle(selector) {
 						i + (app.view.width / 2 - imageData.width / 2),
 						j +
 							(app.view.height / 2 - imageData.height / 2) -
-							imageData.height / 2
+							imageData.height / 2 -
+							textHeight / 2
 					)
 				}
 			}
@@ -154,7 +167,7 @@ function TextParticle(selector) {
 		particlesLength = particles.length
 		app.view.onmousemove = function (evt) {
 			mouseX = (1920 - window.innerWidth) / 2 + evt.clientX
-			mouseY = evt.clientY
+			mouseY = evt.clientY - textHeight / 2
 		}
 	}
 
@@ -165,8 +178,10 @@ function TextParticle(selector) {
 		app.renderer.render(stage)
 		window.requestAnimationFrame(step)
 	}
-
+	if (typeof cb == 'function') {
+		setTimeout(() => {
+			cb()
+		}, 2000)
+	}
 	window.requestAnimationFrame(step)
 }
-
-export { TextParticle }

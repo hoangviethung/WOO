@@ -47,7 +47,7 @@ const server = () => {
 	watch(['src/**.pug']).on('change', (path, stats) => {
 		const pageName = path.split('\\' || '/')[1]
 		const filePathnameGlob = path.replace(/[\\\/]/g, '/')
-		console.log(`Render file ${pageName}`)
+		console.log(`Render file ${pageName}: ${filePathnameGlob}`)
 
 		return src(filePathnameGlob)
 			.pipe(
@@ -68,7 +68,7 @@ const server = () => {
 		(path, stats) => {
 			const pageName = path.split('\\' || '/')[2]
 			const filePathnameGlob = `src/${pageName}.pug`
-			console.log(`Render file ${pageName}.pug`)
+			console.log(`Render file ${pageName}.pug: ${filePathnameGlob}`)
 
 			return src(filePathnameGlob)
 				.pipe(
@@ -89,6 +89,7 @@ const server = () => {
 		ignorePermissionErrors: true,
 		delay: 300,
 		events: 'all',
+		awaitWriteFinish: true,
 	})
 		.on('add', imageChangeTask)
 		.on('change', imageChangeTask)
@@ -120,20 +121,34 @@ const server = () => {
 			.pipe(dest('_dist/js'))
 	})
 
-	watch(['src/scss/**/**.scss'], series(cssTask))
+	watch(
+		['src/scss/**/**.scss'],
+		{
+			awaitWriteFinish: true,
+		},
+		series(cssTask)
+	)
 
 	watch(
 		['_vendors.json', 'vendors/**/**.css', 'vendors/**/**.js'],
+		{
+			awaitWriteFinish: true,
+		},
 		parallel(jsCore, cssCore)
 	)
 	watch(['src/api/**.json', 'src/api/**.html'], series(fakeAPITask))
 
-	watch([
-		'_dist/**.html',
-		'_dist/css/**/**.css',
-		'_dist/js/**/**.js',
-		'_dist/api/**/**.{json,html}',
-	]).on('change', bSync.reload)
+	watch(
+		[
+			'_dist/**.html',
+			'_dist/css/**/**.css',
+			'_dist/js/**/**.js',
+			'_dist/api/**/**.{json,html}',
+		],
+		{
+			awaitWriteFinish: true,
+		}
+	).on('change', bSync.reload)
 }
 
 module.exports = {

@@ -1,0 +1,152 @@
+.sv-creative-2 {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	.section-title {
+		h2 {
+			color: map-get($mau, main);
+			text-transform: none;
+			text-align: center;
+			padding-right: 0;
+			&:before {
+				content: none;
+			}
+			br {
+				display: none;
+			}
+		}
+	}
+}
+
+.creative2__item {
+	&:nth-child(2n + 1) {
+		flex-direction: column;
+		.item__title {
+			text-align: center;
+		}
+		.item__description {
+			flex-direction: column;
+			b {
+				color: map-get($mau, main);
+			}
+		}
+	}
+}
+@media (min-width: 768px) {
+	.sv-creative-2 {
+		padding-top: 70px;
+		padding-bottom: 70px;
+	}
+}
+@media (min-width: 1025px) {
+	.creative2__item {
+		&:nth-child(2n + 1) {
+			flex-direction: row-reverse;
+			.item__title {
+				text-align: right;
+				h3 {
+					font-size: 62px;
+					span {
+						font-size: 57%;
+						+ span {
+							padding-right: 80px;
+						}
+					}
+					br {
+						+ span {
+							opacity: 0.7;
+						}
+					}
+					span:nth-child(5),
+					span:nth-child(6) {
+						font-size: 75%;
+						padding-right: 0;
+					}
+				}
+			}
+			.item__content {
+				padding-top: 25%;
+				transform: translateY(0);
+			}
+			.item__description {
+				margin-right: -90px;
+				max-width: initial;
+			}
+		}
+	}
+	.sv-creative-2 {
+		.section-title {
+			margin-bottom: 75px;
+			h2 {
+				text-align: right;
+				line-height: 0.65;
+				span:nth-child(1) {
+					font-size: 55%;
+				}
+				span:nth-child(3) {
+					opacity: 0.7;
+					line-height: 1.25;
+				}
+				span:last-child {
+					text-align: left;
+					display: block;
+				}
+				span {
+					font-size: 66%;
+				}
+				br {
+					display: inline;
+				}
+			}
+		}
+	}
+}
+@media (min-width: 1200px) {
+	.sv-creative-2 {
+		padding-top: 110px;
+		padding-bottom: 110px;
+	}
+	.creative2__item {
+		&:nth-child(2n + 1) {
+			flex-direction: row-reverse;
+			.item__title {
+				text-align: right;
+				h3 {
+					font-size: 68px;
+				}
+			}
+		}
+	}
+}
+@media (min-width: 1440px) {
+	.creative2__item {
+		&:nth-child(2n + 1) {
+			flex-direction: row-reverse;
+			.item__title {
+				text-align: right;
+				h3 {
+					font-size: 77px;
+				}
+			}
+		}
+	}
+}
+@media (min-width: 1600px) {
+	.sv-creative-2 {
+		.section-title {
+			h2 {
+				font-size: 130px;
+			}
+		}
+	}
+	.creative2__item {
+		&:nth-child(2n + 1) {
+			flex-direction: row-reverse;
+			.item__title {
+				text-align: right;
+				h3 {
+					font-size: 87px;
+				}
+			}
+		}
+	}
+}

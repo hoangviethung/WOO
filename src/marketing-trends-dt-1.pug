@@ -1,0 +1,11 @@
+extends _templates/_layout/_layout.pug
+
+block var
+	- let title = 'Page | Marketing Trends Detail 1';
+	- let bodyClass = 'marketing-trends-detail-1-page';
+
+block loading
+block banner,breadcrumb
+	include _templates/_layout/_breadcrumb
+block main
+	include _templates/marketing-trends-dt-1/m-1
