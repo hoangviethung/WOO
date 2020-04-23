@@ -84,6 +84,7 @@
 	},
 	"dependencies": {
 		"@fancyapps/fancybox": "^3.5.7",
+		"dart-sass": "^1.25.0",
 		"image-map-resizer": "^1.0.10",
 		"jquery": "^3.4.1",
 		"lazysizes": "^5.2.0",

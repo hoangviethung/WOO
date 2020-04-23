@@ -1,0 +1,38 @@
+.media-performance-1 {
+	.section-title {
+		position: relative;
+		z-index: 2;
+		align-items: center;
+		h2 {
+			text-align: center;
+			padding-right: 10px;
+		}
+		.stg1__img {
+			position: static;
+			transform: translate(0%, 0);
+			max-width: 120px;
+		}
+	}
+}
+@media (min-width: 1025px) {
+	.media-performance-1 {
+		.section-title {
+			position: relative;
+			z-index: 2;
+			h2 {
+				text-align: right;
+				padding-right: 0;
+				span {
+					font-size: 60%;
+				}
+			}
+			.stg1__img {
+				max-width: initial;
+				position: absolute;
+				z-index: 0;
+				right: 0;
+				transform: translate(-17%, -50%);
+			}
+		}
+	}
+}

@@ -7,13 +7,13 @@ import clean from 'gulp-clean-css'
 import autoprefixer from 'autoprefixer'
 import sourcemap from 'gulp-sourcemaps'
 import cssSort from 'css-declaration-sorter'
+sass.compiler = require('dart-sass')
 
 const cssTask = () => {
 	return src(['src/scss/**.scss', '!src/scss/_*.scss'])
 		.pipe(sourcemap.init())
 		.pipe(
 			sass({
-				sync: true,
 				fiber: Fiber,
 			}).on('error', sass.logError)
 		)
@@ -29,7 +29,7 @@ const cssTask = () => {
 		)
 		.pipe(
 			clean({
-				compatibility: 'ie8',
+				compatibility: '*',
 			})
 		)
 		.pipe(

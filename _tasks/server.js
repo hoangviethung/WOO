@@ -52,6 +52,7 @@ const server = () => {
 		return src(filePathnameGlob)
 			.pipe(
 				plumber(function (err) {
+					console.log(err)
 					this.emit('end')
 				})
 			)
@@ -73,6 +74,7 @@ const server = () => {
 			return src(filePathnameGlob)
 				.pipe(
 					plumber(function (err) {
+						console.log(err)
 						this.emit('end')
 					})
 				)
