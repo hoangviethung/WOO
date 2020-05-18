@@ -28,18 +28,19 @@
 	.img {
 		-ms-flex: 0 0 100%;
 		-webkit-box-flex: 0;
-		flex: 0 0 110px;
-		max-width: 110px;
+		flex: 0 0 120px;
+		max-width: 120px;
+		width: 100%;
+		img {
+			width: 100%;
+		}
 	}
 }
 
 @media (min-width: 576px) {
 	.about-1 {
 		.img {
-			-ms-flex: 0 0 100%;
-			-webkit-box-flex: 0;
-			flex: 0 0 165px;
-			max-width: 165px;
+			max-width: 190px;
 		}
 	}
 }
@@ -57,8 +58,8 @@
 		.img {
 			position: absolute;
 			top: -44%;
-			left: -23%;
-			max-width: 215px;
+			left: -30%;
+			max-width: 260px;
 		}
 		.text {
 			display: flex;
@@ -73,7 +74,7 @@
 @media (min-width: 1440px) {
 	.about-1 {
 		.img {
-			max-width: 275px;
+			max-width: 330px;
 		}
 	}
 }
@@ -81,7 +82,7 @@
 @media (min-width: 1600px) {
 	.about-1 {
 		.img {
-			max-width: 340px;
+			max-width: 400px;
 		}
 	}
 }

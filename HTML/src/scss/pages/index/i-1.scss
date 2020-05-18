@@ -1,6 +1,25 @@
 .content-home {
 	position: relative;
 	background-color: white;
+
+	@keyframes dash {
+		100% {
+			stroke-dashoffset: 0;
+		}
+	}
+
+	@keyframes textFill {
+		0% {
+			fill: rgba(map-get($mau, main), 0);
+		}
+		40% {
+			fill: map-get($mau, main);
+		}
+		100% {
+			fill: map-get($mau, main);
+		}
+	}
+
 	#text-particle {
 		width: 100%;
 		overflow: hidden;
@@ -8,6 +27,35 @@
 		justify-content: center;
 		align-items: flex-start;
 		z-index: 2;
+		.path {
+			fill: rgba(map-get($mau, main), 1);
+			stroke: map-get($mau, main);
+			stroke-width: 1px;
+			stroke-dashoffset: 1340;
+			stroke-dasharray: 1340;
+			stroke-linecap: butt;
+			stroke-linejoin: round;
+			transition: all 0.3s ease-out;
+		}
+		.path-1 {
+			&.pathed {
+				animation: dash 1.5s linear forwards, textFill 5s linear;
+			}
+		}
+		.path-2 {
+			&.pathed {
+				animation: dash 1.5s linear forwards, textFill 3.5s linear;
+			}
+		}
+		svg {
+			&:hover {
+				transform: scale(1.01);
+				transform-origin: 50% 50%;
+				.path.pathed {
+					animation: none;
+				}
+			}
+		}
 	}
 	.text-particle {
 		max-width: 220px;
@@ -49,7 +97,10 @@
 	.content-home {
 		background-color: transparent;
 		#text-particle {
-			height: 100vh;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 		.ch__slogan {
 			h2 {

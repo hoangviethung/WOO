@@ -19,11 +19,18 @@ const addClassBody = () => {
 
 const toggleHeader = () => {
 	const toggleMenuButton = document.querySelector('.header__toggle-menu')
-	const navListWrapper = document.querySelector('.header__nav-list')
+	const closeMenuButton = document.querySelector('.header__close-menu')
+
+	const navListWrapper = document.querySelector('.header__main-nav')
+
 	toggleMenuButton.addEventListener('click', (e) => {
 		e.preventDefault()
-		toggleMenuButton.classList.toggle('active')
 		navListWrapper.classList.toggle('active')
+	})
+
+	closeMenuButton.addEventListener('click', (e) => {
+		e.preventDefault()
+		navListWrapper.classList.remove('active')
 	})
 }
 
@@ -296,6 +303,90 @@ const checkFooter = () => {
 	}
 }
 
+const aboutCategorySliders = () => {
+	Array.from(document.querySelectorAll('.ab6__category .ab6__list')).forEach(
+		(item, index) => {
+			const name = `ab6c-${index}`
+			item.classList.add(name)
+			return new Swiper(`.${name} .swiper-container`, {
+				slidesPerView: 'auto',
+				loop: true,
+				speed: 1200,
+				autoplay: {
+					delay: 4000 - index * 3,
+					disableOnInteraction: false,
+				},
+				navigation: {
+					prevEl: `.${name} .swiper-prev`,
+					nextEl: `.${name} .swiper-next`,
+				},
+			})
+		}
+	)
+}
+
+const getAllPreviousSection = (btn, arr) => {
+	if (btn.previousElementSibling) {
+		arr.unshift(btn.previousElementSibling)
+		return getAllPreviousSection(btn.previousElementSibling, arr)
+	} else {
+		return arr
+	}
+}
+
+const nextSection = () => {
+	const pageVerify = document.querySelector('#js-page-verify')
+	if (pageVerify && !pageVerify.classList.contains('index-page')) {
+		const btn = document.querySelector('#next-section')
+		let arraySection
+		if (btn) {
+			let count = 0
+			arraySection = getAllPreviousSection(btn, [])
+			arraySection.forEach((item) => {
+				if (
+					item.getBoundingClientRect().top < window.innerHeight &&
+					item.getBoundingClientRect().top >= 0 &&
+					count < 1
+				) {
+					item.classList.add('section-active')
+					count++
+				}
+			})
+
+			btn.addEventListener('click', () => {
+				const currentItem = document.querySelector('.section-active')
+				if (currentItem.nextElementSibling) {
+					currentItem.classList.remove('section-active')
+					currentItem.nextElementSibling.classList.add(
+						'section-active'
+					)
+
+					window.scrollTo({
+						top:
+							document.querySelector('.section-active')
+								.offsetTop -
+							document.querySelector('header').innherHeight,
+						left: 0,
+						behavior: 'smooth',
+					})
+				} else {
+					btn.classList.add('disabled')
+				}
+			})
+			window.addEventListener('scroll', () => {})
+		}
+	}
+}
+
+const drawSvgIndex = () => {
+	const svg = document.querySelector('#text-particle')
+	if (svg) {
+		Array.from(svg.querySelectorAll('.path')).forEach((item) => {
+			item.classList.add('pathed')
+		})
+	}
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 	addClassBody()
 	toggleHeader()
@@ -306,10 +397,12 @@ document.addEventListener('DOMContentLoaded', () => {
 	setHeightForSomeItemHaveAttribute()
 	index_fullpage()
 	index_particleBackground()
+	aboutCategorySliders()
 
 	popupDownload()
 	// scripts run after loading
 	checkFooter()
+	nextSection()
 
 	const wowOpts = {
 		boxClass: 'wow', // animated element css class (default is wow)
@@ -331,8 +424,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	} else {
 		new WOW(wowOpts).init()
 	}
+
 	Loading().then(() => {
-		index_logoParticle()
+		// index_logoParticle()
+		drawSvgIndex()
 	})
 })
 

@@ -33,6 +33,48 @@
 	margin-top: -40px;
 	padding-top: 40px;
 	padding-bottom: 40px;
+	padding-right: 50px;
+	padding-left: 50px;
+	position: relative;
+	.swiper-prev,
+	.swiper-next {
+		cursor: pointer;
+		position: absolute;
+		width: 35px;
+		height: 35px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 1px solid darken(white, 32%);
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 10;
+	}
+	.swiper-prev {
+		left: 0px;
+	}
+	.swiper-next {
+		right: 0px;
+	}
+
+	.swiper-slide {
+		height: initial;
+		padding: 10px;
+		width: auto;
+		max-width: 140px;
+		a {
+			height: 100%;
+			padding: 10px;
+			border: 1px solid rgba(map-get($mau, main), 0);
+			transition: all 0.3s ease-out;
+			img {
+				max-height: 50px;
+			}
+			&:hover {
+				border: 1px solid map-get($mau, main);
+			}
+		}
+	}
 }
 .ab6__title {
 	padding-bottom: 10px;

@@ -16,3 +16,14 @@
 @import 'pages/research-insight/main';
 @import 'pages/viral-video/main';
 @import 'pages/contact/main';
+
+.index-page {
+	header {
+		.header__logo {
+			display: none;
+		}
+	}
+	#next-section {
+		display: none;
+	}
+}

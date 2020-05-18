@@ -28,3 +28,15 @@
 		fill: map-get($mau, main);
 	}
 }
+
+@keyframes scrollDown {
+	from {
+		transform: translateY(0);
+		opacity: 1;
+	}
+
+	to {
+		transform: translateY(25px) scale(0.9);
+		opacity: 0;
+	}
+}

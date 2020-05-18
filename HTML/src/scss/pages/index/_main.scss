@@ -151,8 +151,8 @@
 		display: block;
 		svg {
 			path {
-				animation: characterStroke 1s linear forwards,
-					characterFill 0.75s 0.75s linear forwards;
+				animation: characterStroke 3s linear forwards,
+					characterFill 1.25s 1.25s linear forwards;
 			}
 		}
 	}
@@ -294,5 +294,43 @@
 		+ a {
 			margin-left: 35px;
 		}
+	}
+}
+
+#fp-next-2,
+#next-section {
+	position: fixed;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 30px;
+	z-index: 101;
+	width: 68px;
+	height: 70px;
+	overflow: hidden;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: all 0.4s ease-in-out;
+
+	svg {
+		margin-top: -20px;
+
+		path {
+			stroke: black;
+			stroke-width: 0.5px;
+			fill: white;
+		}
+
+		.mouse-next-section {
+			opacity: 0.75;
+			animation: scrollDown 1.5s linear infinite forwards;
+			transform-origin: 50% 50%;
+
+			&.delay-1 {
+				animation-delay: 0.75s;
+			}
+		}
+	}
+	&.disabled {
+		display: none;
 	}
 }

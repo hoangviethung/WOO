@@ -1,3 +1,15 @@
 .vr2__item {
 	@extend .ri2__item;
+	.item__icon {
+		width: 68px;
+		height: 68px;
+		border-radius: 50%;
+		background-color: white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		img {
+			max-width: 40px;
+		}
+	}
 }

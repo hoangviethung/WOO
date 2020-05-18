@@ -23,7 +23,7 @@
 
 .ab2__title {
 	justify-content: center;
-	margin-bottom: 15px;
+	z-index: 2;
 	h2 {
 		color: map-get($mau, main);
 		padding-right: 0;

@@ -1,7 +1,17 @@
+footer {
+	.container {
+		border-top: 3px solid rgba(map-get($mau, main), 0.5);
+	}
+}
+
+.footer-row {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
 .footer__social {
 	@extend .header__social;
 	justify-content: center;
-	padding-top: 10px;
 	a {
 		+ a {
 			margin-left: 30px;
@@ -26,32 +36,23 @@
 	margin: 0 auto;
 }
 
-footer {
-	.container {
-		border-top: 3px solid rgba(map-get($mau, main), 0.5);
-		padding-top: 10px;
-		padding-bottom: 10px;
-	}
+.footer__logo,
+.footer__social {
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
+
 @media (min-width: 768px) {
 	.footer__logo {
 		max-width: 95px;
 	}
-	footer {
-		.container {
-			padding-top: 30px;
-			padding-bottom: 25px;
-		}
+	.footer-row {
+		padding-top: 30px;
+		padding-bottom: 25px;
 	}
 }
 
 @media (min-width: 1025px) {
-	footer {
-		.container {
-			padding-top: 50px;
-			padding-bottom: 40px;
-		}
-	}
 	.footer__nav-list {
 		.nav-link {
 			font-size: 16px;
@@ -67,29 +68,11 @@ footer {
 	}
 
 	.footer__social {
-		padding-left: 120px;
 		position: relative;
-		padding-top: 0;
-		&:before {
-			content: '';
-			width: 60px;
-			height: 1px;
-			position: absolute;
-			left: 30px;
-			top: 50%;
-			transform: translateY(-50%);
-			background-color: map-get($mau, main);
-		}
 	}
 }
 
 @media (min-width: 1200px) {
-	footer {
-		.container {
-			padding-top: 80px;
-			padding-bottom: 60px;
-		}
-	}
 	.footer__nav-list {
 		.nav-link {
 			font-size: 18px;

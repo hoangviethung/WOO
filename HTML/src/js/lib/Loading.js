@@ -4,16 +4,14 @@ export function Loading() {
 		let images = document.images
 		let imagesLength = images.length
 		let counter = 0
-		console.log(1);
-		
 
 		function turnOffLoadingScreen() {
 			loading.classList.add('closing')
 			loading.style.opacity = '0'
-			resolve()
 			setTimeout(function () {
 				loading.parentNode.removeChild(loading)
 				document.body.classList.add('show-page')
+				resolve()
 			}, 1000)
 		}
 

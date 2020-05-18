@@ -11,6 +11,7 @@ class Fullpage {
 		this.selector = document.querySelector(selector)
 		this.prevEl = document.querySelector('#fp-prev')
 		this.nextEl = document.querySelector('#fp-next')
+		this.nextEl2 = document.querySelector('#fp-next-2')
 		this.opts = [].concat(opts)[0]
 
 		if (this.selector) {
@@ -36,11 +37,13 @@ class Fullpage {
 		if (typeof this.opts.on.init == 'function') {
 			this.opts.on.init(this)
 		}
+
 		if (this.state.currentIndex >= this.slideLength - 1) {
 			this.nextEl.classList.add('disabled')
 		} else {
 			this.nextEl.classList.remove('disabled')
 		}
+
 		if (this.state.currentIndex <= 0) {
 			this.prevEl.classList.add('disabled')
 		} else {
@@ -96,6 +99,19 @@ class Fullpage {
 				}, 2000)
 			}
 		})
+
+		this.nextEl2.addEventListener('click', () => {
+			if (this.state.canScroll) {
+				this.state.canScroll = false
+				if (this.state.nextIndex < this.letters.length - 1) {
+					this.state.nextIndex += 1
+				}
+				this.changeSlide()
+				setTimeout(() => {
+					this.state.canScroll = true
+				}, 2000)
+			}
+		})
 	}
 
 	changeSlide() {
@@ -111,16 +127,21 @@ class Fullpage {
 				_this.letters[_this.state.nextIndex].classList.add('active')
 				_this.backgrounds[_this.state.nextIndex].classList.add('active')
 				_this.state.currentIndex = _this.state.nextIndex
+
 				if (_this.state.currentIndex >= this.slideLength - 1) {
 					_this.nextEl.classList.add('disabled')
+					_this.nextEl2.classList.add('disabled')
 				} else {
 					_this.nextEl.classList.remove('disabled')
+					_this.nextEl2.classList.remove('disabled')
 				}
+
 				if (_this.state.currentIndex <= 0) {
 					_this.prevEl.classList.add('disabled')
 				} else {
 					_this.prevEl.classList.remove('disabled')
 				}
+
 				if (typeof _this.opts.on.afterChangeSlide == 'function') {
 					_this.opts.on.afterChangeSlide(_this, _this.state)
 				}
