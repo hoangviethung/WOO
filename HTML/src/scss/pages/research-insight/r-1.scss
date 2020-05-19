@@ -6,7 +6,6 @@
 	background-repeat: no-repeat;
 
 	.section-title {
-		flex-direction: row-reverse;
 		h2 {
 			color: white;
 			sup {
@@ -16,13 +15,25 @@
 			span {
 				display: inline-block !important;
 				font-size: 84% !important;
-				padding-right: 0!important;
+				padding-right: 0 !important;
 				left: 60px;
 				position: relative;
 			}
 		}
 	}
 }
+
+@media (min-width: 1025px) {
+	.research-insight-1 {
+		.section-title {
+			h2 {
+				font-size: 100px;
+				margin-left: -40px;
+			}
+		}
+	}
+}
+
 @media (min-width: 1200px) {
 	.research-insight-1 {
 		.section-title {

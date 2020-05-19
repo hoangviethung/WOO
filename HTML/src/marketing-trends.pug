@@ -5,8 +5,24 @@ block var
 	- let bodyClass = 'marketing-trends-page';
 
 block loading
+	include _templates/_layout/_loading
 block banner,breadcrumb
 	include _templates/_layout/_breadcrumb
 block main
-	include _templates/marketing-trends/m-1
-	include _templates/marketing-trends/m-2
+	.fp-layer-video-mask
+		.fp-layer-video.desktop
+			iframe(src="https://www.youtube.com/embed/BDCU5OFXZ2c?controls=0&amp;autoplay=1&amp;mute=1&amp;loop=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+		.about-text.desktop
+			.viral-video-1-text
+				.container
+					.content
+						.section-title
+							.stg-dt__img.wow.fadeInUp
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="505.026" height="507.026" viewBox="0 0 505.026 507.026"><ellipse cx="252.513" cy="253.513" rx="252.513" ry="253.513" fill="#000000"/></svg>
+							.title(style="opacity: 0")
+								h2.wow.fadeInUp Marketing
+									br
+									sup & 
+									span Trends
+		include _templates/marketing-trends/m-1
+		include _templates/marketing-trends/m-2

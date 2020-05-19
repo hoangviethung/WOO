@@ -19,7 +19,7 @@ const getSVGs = (selector) => {
 	if (typeof selector == 'string' && selector.length > 0) {
 		const SVGs = Array.from(document.querySelectorAll(selector))
 		for (let i = 0; i < SVGs.length; i++) {
-			const dataSrc = SVGs[i].getAttribute('data-src')
+			const dataSrc = SVGs[i].getAttribute('src')
 			const src = SVGs[i].getAttribute('src')
 			const svgUrl = dataSrc || src
 			const fullUrl = getFullUrl(svgUrl)

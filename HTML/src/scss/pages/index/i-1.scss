@@ -1,6 +1,8 @@
 .content-home {
 	position: relative;
 	background-color: white;
+	padding-top: 40px;
+	padding-bottom: 40px;
 
 	@keyframes dash {
 		100% {
@@ -22,44 +24,30 @@
 
 	#text-particle {
 		width: 100%;
-		overflow: hidden;
 		display: flex;
+		flex-direction: column;
 		justify-content: center;
 		align-items: flex-start;
 		z-index: 2;
-		.path {
-			fill: rgba(map-get($mau, main), 1);
-			stroke: map-get($mau, main);
-			stroke-width: 1px;
-			stroke-dashoffset: 1340;
-			stroke-dasharray: 1340;
-			stroke-linecap: butt;
-			stroke-linejoin: round;
-			transition: all 0.3s ease-out;
-		}
-		.path-1 {
-			&.pathed {
-				animation: dash 1.5s linear forwards, textFill 5s linear;
+		cursor: grab;
+		.intro {
+			width: 1000px;
+
+			.text {
+				display: none;
 			}
 		}
-		.path-2 {
-			&.pathed {
-				animation: dash 1.5s linear forwards, textFill 3.5s linear;
+		h1 {
+			text-align: center;
+			color: map-get($mau, main);
+			width: 100%;
+			text-transform: uppercase;
+		}
+		.content-particle-wrapper {
+			@media (max-width: 1024.98px) {
+				width: 100%;
 			}
 		}
-		svg {
-			&:hover {
-				transform: scale(1.01);
-				transform-origin: 50% 50%;
-				.path.pathed {
-					animation: none;
-				}
-			}
-		}
-	}
-	.text-particle {
-		max-width: 220px;
-		margin: 0 auto;
 	}
 	.ch__slogan {
 		width: 100%;
@@ -79,6 +67,104 @@
 			font-weight: 400;
 		}
 	}
+	.background {
+		position: absolute;
+		opacity: 0.075;
+		pointer-events: none;
+		right: -5%;
+		top: 48%;
+		transform: translateY(-50%);
+		svg {
+			width: auto;
+			height: 330px;
+			path {
+				stroke-width: 10px;
+				stroke: map-get($mau, main);
+			}
+			@media (min-width: 1025px) {
+				height: 420px;
+			}
+			@media (min-width: 1200px) {
+				height: 560px;
+			}
+		}
+	}
+	&.active {
+		#text-particle {
+			.intro {
+				.text {
+					font-family: Arial, sans-serif;
+					font-size: 20px;
+					text-transform: uppercase;
+					display: block;
+					font-weight: 700;
+					transition: all 0.3s ease-out;
+					&:hover {
+						fill: none;
+						stroke: darken(white, 15%);
+					}
+				}
+				.text-stroke {
+					fill: none;
+					stroke: darken(white, 15%);
+					stroke-width: 7px;
+					stroke-dashoffset: -900;
+					stroke-dasharray: 900;
+					stroke-linecap: butt;
+					stroke-linejoin: round;
+					animation: dash 1.5s ease-in-out forwards;
+				}
+				.text-stroke-2 {
+					stroke: map-get($mau, main);
+					animation-delay: 0.4s;
+				}
+				.text-stroke:nth-child(5) {
+					animation-delay: 0.6s;
+				}
+				.text-stroke:nth-child(6) {
+					animation-delay: 0.8s;
+				}
+			}
+		}
+	}
+	@media (max-width: 1024.98px) {
+		#text-particle {
+			.intro {
+				.text {
+					font-family: Arial, sans-serif;
+					font-size: 20px;
+					text-transform: uppercase;
+					display: block;
+					font-weight: 700;
+					transition: all 0.3s ease-out;
+					&:hover {
+						fill: none;
+						stroke: darken(white, 15%);
+					}
+				}
+				.text-stroke {
+					fill: none;
+					stroke: darken(white, 15%);
+					stroke-width: 7px;
+					stroke-dashoffset: -900;
+					stroke-dasharray: 900;
+					stroke-linecap: butt;
+					stroke-linejoin: round;
+					animation: dash 1.5s ease-in-out forwards;
+				}
+				.text-stroke-2 {
+					stroke: map-get($mau, main);
+					animation-delay: 0.4s;
+				}
+				.text-stroke:nth-child(5) {
+					animation-delay: 0.6s;
+				}
+				.text-stroke:nth-child(6) {
+					animation-delay: 0.8s;
+				}
+			}
+		}
+	}
 }
 
 @media (min-width: 768px) {
@@ -96,11 +182,10 @@
 @media (min-width: 1025px) {
 	.content-home {
 		background-color: transparent;
+		padding-top: 0px;
+		padding-bottom: 0px;
 		#text-particle {
 			height: 100%;
-			display: flex;
-			justify-content: center;
-			align-items: center;
 		}
 		.ch__slogan {
 			h2 {

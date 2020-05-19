@@ -5,8 +5,24 @@ block var
 	- let bodyClass = 'viral-video-page';
 
 block loading
+	include _templates/_layout/_loading
 block banner,breadcrumb
 	include _templates/_layout/_breadcrumb
 block main
-	include _templates/viral-video/v-1
-	include _templates/viral-video/v-2
+	.fp-layer-video-mask
+		.fp-layer-video.desktop
+			iframe(src="https://www.youtube.com/embed/BDCU5OFXZ2c?controls=0&amp;autoplay=1&amp;mute=1&amp;loop=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+		.about-text.desktop
+			.viral-video-1-text
+				.container
+					.content
+						.section-title
+							.stg-dt__img.wow.fadeInUp
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="590.186" height="590.186" viewBox="0 0 590.186 590.186"><path d="M295.093,0C132.136,0,0,132.136,0,295.093S132.136,590.186,295.093,590.186,590.186,458.05,590.186,295.093,458.05,0,295.093,0Zm0,379.405a84.312,84.312,0,1,1,84.312-84.312A84.319,84.319,0,0,1,295.093,379.405Z" fill="#000000"/></svg>
+							.title(style="opacity: 0")
+								h2.wow.fadeInUp Viral Video
+									br
+									sup &nbsp;&nbsp;&nbsp;&nbsp;&
+									span TVC
+		include _templates/viral-video/v-1
+		include _templates/viral-video/v-2

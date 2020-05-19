@@ -1,10 +1,64 @@
 @import 'a-1.scss';
 @import 'a-2.scss';
 
-
 .analysis-page {
 	background-image: url('../assets/analysis/bg_1.png');
 	background-position: top;
 	background-size: cover;
 	background-repeat: no-repeat;
+}
+@media (min-width: 1025px) {
+	.analysis-1 {
+		height: 100vh;
+		.img {
+			opacity: 0;
+		}
+	}
+	.analysis-2 {
+		background: white;
+		position: relative;
+	}
+}
+
+.analysis-1-text {
+	height: 100vh;
+	mix-blend-mode: screen;
+	background: white;
+	.container,
+	.row {
+		height: 100%;
+	}
+	.content {
+		display: flex;
+		align-items: center;
+		margin-right: 0;
+	}
+	.img {
+		-ms-flex: 0 0 100%;
+		-webkit-box-flex: 0;
+		flex: 0 0 120px;
+		width: 120px;
+		svg {
+			width: 100%;
+		}
+	}
+	@media (min-width: 576px) {
+		.img {
+			flex: 0 0 260px;
+			width: 260px;
+		}
+	}
+	@media (min-width: 1440px) {
+		.img {
+			flex: 0 0 400px;
+			width: 400px;
+		}
+	}
+
+	@media (min-width: 1600px) {
+		.img {
+			flex: 0 0 470px;
+			width: 470px;
+		}
+	}
 }

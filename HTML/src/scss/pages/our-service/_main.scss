@@ -7,3 +7,65 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 }
+
+.our-service-1-text {
+	height: 100vh;
+	mix-blend-mode: screen;
+	background: white;
+	.container,
+	.row {
+		height: 100%;
+	}
+	.content {
+		display: flex;
+		align-items: center;
+	}
+	.img {
+		-ms-flex: 0 0 100%;
+		-webkit-box-flex: 0;
+		flex: 0 0 120px;
+		width: 120px;
+		img {
+			width: 100%;
+		}
+	}
+	@media (min-width: 576px) {
+		.img {
+			width: 260px;
+		}
+	}
+	@media (min-width: 1440px) {
+		.img {
+			width: 400px;
+		}
+	}
+
+	@media (min-width: 1600px) {
+		.img {
+			width: 470px;
+		}
+	}
+}
+
+@media (min-width: 1025px) {
+	.our-service-1 {
+		position: absolute;
+		width: 100%;
+		top: 0;
+		height: 100vh;
+		.container,
+		.row {
+			height: 100%;
+		}
+		.img {
+			opacity: 0;
+		}
+		.content {
+			margin-top: 0;
+		}
+	}
+	.our-serivce-2 {
+		position: relative;
+		background-color: white;
+	}
+}

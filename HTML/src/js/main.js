@@ -387,6 +387,44 @@ const drawSvgIndex = () => {
 	}
 }
 
+const customEffect = () => {
+	const area = document.querySelector('.content-home')
+	if (area) {
+		const width = area.clientWidth
+		const height = area.clientHeight
+		let origin = {}
+		origin.x = width / 2
+		origin.y = height / 2
+
+		if (area) {
+			area.addEventListener('mouseenter', (e) => {
+				area.querySelector(
+					'.background svg'
+				).style.transform = `translate3D(${
+					-(e.clientX - origin.x) / 30
+				}px,${-(e.clientY - origin.y) / 30}px, 0)`
+			})
+			area.addEventListener('mousemove', (e) => {
+				area.querySelector(
+					'.background svg'
+				).style.transform = `translate3D(${
+					-(e.clientX - origin.x) / 30
+				}px,${-(e.clientY - origin.y) / 30}px, 0)`
+			})
+			area.addEventListener('mouseleave', (e) => {
+				area.querySelector('.background svg').style.transition =
+					'all .3s linear'
+				area.querySelector(
+					'.background svg'
+				).style.transform = `translate3D(0px,0px, 0)`
+			})
+			area.addEventListener('webkitTransitionEnd', () => {
+				area.querySelector('.background svg').style.transition = 'none'
+			})
+		}
+	}
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 	addClassBody()
 	toggleHeader()
@@ -395,14 +433,14 @@ document.addEventListener('DOMContentLoaded', () => {
 	setPaddingBreadcrumb()
 	getSVGs('.svg')
 	setHeightForSomeItemHaveAttribute()
-	index_fullpage()
-	index_particleBackground()
+	// index_particleBackground()
 	aboutCategorySliders()
 
 	popupDownload()
 	// scripts run after loading
 	checkFooter()
 	nextSection()
+	customEffect()
 
 	const wowOpts = {
 		boxClass: 'wow', // animated element css class (default is wow)
@@ -427,7 +465,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	Loading().then(() => {
 		// index_logoParticle()
+		index_fullpage()
 		drawSvgIndex()
+		$('.intro').addClass('go')
+		$('.about-text svg').addClass('active')
 	})
 })
 

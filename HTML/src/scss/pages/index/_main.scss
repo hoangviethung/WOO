@@ -96,9 +96,9 @@
 		path {
 			stroke: rgba(map-get($mau, main), 0.75);
 			stroke-width: 1px;
+			fill: transparent;
 			stroke-dashoffset: 4560;
 			stroke-dasharray: 4560;
-			fill: transparent;
 		}
 	}
 
@@ -252,9 +252,20 @@
 		span {
 			margin: 0 10px;
 			cursor: pointer;
+			border-radius: 15px;
+			height: 30px;
+			padding: 0 10px;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			transition: all .3s ease-out;
 			&.disabled {
 				opacity: 0.5;
 				pointer-events: none;
+			}
+			&:not(.disabled):hover {
+				background-color: map-get($mau, main);
+				color: white;
 			}
 		}
 
@@ -291,8 +302,24 @@
 		}
 	}
 	a {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		transition: all 0.3s ease-out;
 		+ a {
-			margin-left: 35px;
+			margin-left: 15px;
+		}
+		&:hover {
+			background-color: map-get($mau, main);
+			svg {
+				path {
+					transition: all 0.3s ease-out;
+					fill: white;
+				}
+			}
 		}
 	}
 }

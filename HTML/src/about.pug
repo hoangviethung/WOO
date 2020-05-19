@@ -5,12 +5,35 @@ block var
 	- let bodyClass = 'about-page';
 
 block loading
+	include _templates/_layout/_loading
 block banner,breadcrumb
 	include _templates/_layout/_breadcrumb
 block main
-	include _templates/about/a-1
-	include _templates/about/a-2
-	include _templates/about/a-3
-	include _templates/about/a-4
-	include _templates/about/a-5
-	include _templates/about/a-6
+	.fp-layer-video-mask
+		.fp-layer-video.desktop
+			iframe(src="https://www.youtube.com/embed/BDCU5OFXZ2c?controls=0&amp;autoplay=1&amp;mute=1&amp;loop=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+		.about-text.desktop
+			.about-1-text
+				.container
+					.row
+						.img
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="340.137" height="324.536" viewBox="0 0 340.137 324.536"><path d="M121.509-324.536H229.614L345.63,0H239.941L226.758-43.286H121.509L108.984,0H5.493Zm19.775,213.794H208.3L174.243-226.758Z" transform="translate(-5.493 324.536)" fill="#000000"/></svg>
+			.about-2-text
+				.container
+					.row.ai-c
+						.col-lg-6
+							.ab2__title.section-title
+								h2.wow.fadeInLeft
+									span Hard 
+									br
+									| working 
+									br
+									span show
+							.ab2__img.wow.fadeInUp
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="674.257" height="674.257" viewBox="0 0 674.257 674.257"><defs><linearGradient id="a" x1="0.458" y1="0.323" x2="0.5" y2="1" gradientUnits="objectBoundingBox" ><stop offset="0" stop-color="#ffd6c9"/><stop offset="0.745" stop-color="#f88b98"/><stop offset="1" stop-color="#f1667f"/></linearGradient></defs><g transform="translate(-44 -1082)"><path d="M337.128,0C150.959,0,0,150.959,0,337.128S150.959,674.257,337.128,674.257,674.257,523.3,674.257,337.128,523.3,0,337.128,0Zm0,433.451a96.322,96.322,0,1,1,96.322-96.322A96.33,96.33,0,0,1,337.128,433.451Z" transform="translate(44 1082)" fill="#000000"/><circle cx="190" cy="190" r="190" transform="translate(614.403 1554.052) rotate(165)" fill="url(#a)" style="mix-blend-mode: multiply; isolation: isolate;"/></g></svg>
+		include _templates/about/a-1
+		include _templates/about/a-2
+		include _templates/about/a-3
+		include _templates/about/a-4
+		include _templates/about/a-5
+		include _templates/about/a-6

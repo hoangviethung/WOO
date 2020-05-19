@@ -35,16 +35,16 @@
 				}
 			}
 		}
-		&.white {
-			li:not(:last-child) {
-				&:before {
-					color: white;
-				}
-				a {
-					color: white;
-				}
-			}
-		}
+		// &.white {
+		// 	li:not(:last-child) {
+		// 		&:before {
+		// 			color: white;
+		// 		}
+		// 		a {
+		// 			color: white;
+		// 		}
+		// 	}
+		// }
 	}
 	@media (max-width: 1024.98px) {
 		display: none;

@@ -18,12 +18,33 @@
 @import 'pages/contact/main';
 
 .index-page {
-	header {
-		.header__logo {
-			display: none;
-		}
-	}
+	// header {
+	// 	.header__logo {
+	// 		display: none;
+	// 	}
+	// }
 	#next-section {
 		display: none;
+	}
+}
+
+.about-text {
+	svg {
+		path,
+		ecllipse {
+			stroke-width: 1px;
+			stroke: map-get($mau, main);
+			stroke-dasharray: 1200;
+			stroke-dashoffset: 1200;
+			stroke-linejoin: round;
+			stroke-linecap: square;
+			fill: transparent;
+		}
+		&.active {
+			path {
+				animation: characterStroke 2.5s linear forwards,
+					characterFill 1.25s 2s linear forwards;
+			}
+		}
 	}
 }
