@@ -40,12 +40,19 @@
 		width: 120px;
 		svg {
 			width: 100%;
+			height: auto;
 		}
 	}
 	@media (min-width: 576px) {
 		.img {
 			flex: 0 0 260px;
-			width: 260px;
+			width: 230px;
+		}
+	}
+	@media (min-width: 1025px) {
+		.img {
+			flex: 0 0 320px;
+			width: 320px;
 		}
 	}
 	@media (min-width: 1440px) {
@@ -57,8 +64,8 @@
 
 	@media (min-width: 1600px) {
 		.img {
-			flex: 0 0 470px;
-			width: 470px;
+			flex: 0 0 520px;
+			width: 520px;
 		}
 	}
 }

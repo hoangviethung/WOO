@@ -36,7 +36,7 @@ export function Loading() {
 		}
 		if (loading) {
 			if (imagesLength === 0) {
-				return turnOffLoadingScreen(resolve)
+				return turnOffLoadingScreen()
 			} else {
 				loading.classList.add('loading')
 				for (let i = 0; i < imagesLength; i++) {
@@ -46,6 +46,8 @@ export function Loading() {
 					img.src = images[i].src
 				}
 			}
+		} else {
+			return resolve()
 		}
 	})
 }

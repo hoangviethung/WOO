@@ -5,8 +5,17 @@ block var
 	- let bodyClass = 'contact-page';
 
 block loading
-	include _templates/_layout/_loading
+	
 block banner,breadcrumb
 	include _templates/_layout/_breadcrumb
 block main
+	.fp-layer-video-mask
+		.fp-layer-video.desktop
+			video.ofcv(src="./assets/video_min.mp4" autoplay loop muted playsinline)
+		.about-text.desktop
+			.contact-1-text
+				.container
+					.img
+						//- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="340.137" height="324.536" viewBox="0 0 340.137 324.536"><path d="M121.509-324.536H229.614L345.63,0H239.941L226.758-43.286H121.509L108.984,0H5.493Zm19.775,213.794H208.3L174.243-226.758Z" transform="translate(-5.493 324.536)" fill="#000000"/></svg>
+						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="490" height="489" viewBox="0 0 490 489"><defs><pattern id="a" width="1" height="1" viewBox="671.267 -404.278 453.526 452.601"></pattern></defs><g transform="translate(-1405 -258)"><ellipse cx="245" cy="244.5" rx="245" ry="244.5" transform="translate(1405 258)" fill="black"/><g transform="translate(1547 399)" fill="none" stroke="#f1667f" stroke-width="60" opacity="0.8"><circle cx="103.5" cy="103.5" r="103.5" stroke="none"/><circle cx="103.5" cy="103.5" r="73.5" fill="none"/></g></g></svg>
 	include _templates/contact/c-1.pug

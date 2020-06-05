@@ -5,7 +5,7 @@ block var
 	- let bodyClass = 'index-page';
 
 block loading
-	include _templates/_layout/_loading
+	//- include _templates/_layout/_loading
 block banner,breadcrumb
 block main
 	.desktop.fp-layer-background-color
@@ -16,7 +16,7 @@ block main
 		.fp-layer-color.fp-layer-social
 	.desktop.fp-layer-video-mask
 		.fp-layer-video
-			//- video(src="./assets/video.mkv" muted autoplay playsinline loop)
+			video.ofcv(src="./assets/video_min.mp4" autoplay loop muted playsinline)
 			iframe(src="https://www.youtube.com/embed/BDCU5OFXZ2c?controls=0&amp;autoplay=1&amp;mute=1&amp;loop=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
 		.fp-layer-text
 			.container
@@ -55,7 +55,4 @@ block main
 						<svg xmlns="http://www.w3.org/2000/svg" width="7.874" height="15.907" viewBox="0 0 7.874 15.907"><path d="M1095.386,74.615h-2.343v7.54h-3.474v-7.54h-1.652V71.663h1.652v-1.91a3.257,3.257,0,0,1,3.5-3.5l2.573.011v2.865h-1.867a.707.707,0,0,0-.737.8v1.737h2.646Zm.4.089" transform="translate(-1087.917 -66.248)" fill="#f1667f"></path></svg>
 					a(href='#')
 						<svg xmlns="http://www.w3.org/2000/svg" width="15.574" height="12.657" viewBox="0 0 15.574 12.657"><path d="M1234.967,68.608a6.376,6.376,0,0,1-1.835.5,3.206,3.206,0,0,0,1.405-1.767,6.4,6.4,0,0,1-2.029.775,3.2,3.2,0,0,0-5.445,2.915,9.071,9.071,0,0,1-6.586-3.339,3.2,3.2,0,0,0,.989,4.266,3.181,3.181,0,0,1-1.447-.4c0,.013,0,.027,0,.041a3.2,3.2,0,0,0,2.563,3.133,3.2,3.2,0,0,1-1.443.055,3.2,3.2,0,0,0,2.985,2.219,6.449,6.449,0,0,1-4.73,1.323,9.087,9.087,0,0,0,13.989-7.655q0-.208-.01-.413a6.492,6.492,0,0,0,1.595-1.654Zm0,0" transform="translate(-1219.393 -67.11)" fill="#f1667f"></path></svg>
-						
-	.desktop#fp-next-2
-		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 140" version="1.1" x="0px" y="0px"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g fill="#000000"><path class="mouse-next-section" d="M50,94.5787804 L64.7927304,79.7860499 C65.573779,79.0050013 66.840109,79.0050013 67.6211576,79.7860499 C68.4022061,80.5670985 68.4022061,81.8334285 67.6211576,82.614477 L51.4142136,98.8214211 C51.0236893,99.2119453 50.5118446,99.4072075 50,99.4072075 C49.4881554,99.4072075 48.9763107,99.2119453 48.5857864,98.8214211 L32.3312722,82.566907 C31.5502236,81.7858584 31.5502236,80.5195284 32.3312722,79.7384798 C33.1123208,78.9574313 34.3786508,78.9574313 35.1596993,79.7384798 L50,94.5787804 Z" /><path class="mouse-next-section delay-1" d="M50,94.5787804 L64.7927304,79.7860499 C65.573779,79.0050013 66.840109,79.0050013 67.6211576,79.7860499 C68.4022061,80.5670985 68.4022061,81.8334285 67.6211576,82.614477 L51.4142136,98.8214211 C51.0236893,99.2119453 50.5118446,99.4072075 50,99.4072075 C49.4881554,99.4072075 48.9763107,99.2119453 48.5857864,98.8214211 L32.3312722,82.566907 C31.5502236,81.7858584 31.5502236,80.5195284 32.3312722,79.7384798 C33.1123208,78.9574313 34.3786508,78.9574313 35.1596993,79.7384798 L50,94.5787804 Z" /></g></g></svg>
 block scripts

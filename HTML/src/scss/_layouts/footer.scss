@@ -6,6 +6,15 @@ footer {
 	}
 }
 
+.contact-page {
+	footer {
+		background-color: rgb(248, 178, 190);
+		.container {
+			border-top: 0;
+		}
+	}
+}
+
 .footer-row {
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -42,6 +51,15 @@ footer {
 .footer__social {
 	padding-top: 20px;
 	padding-bottom: 20px;
+}
+
+.copyright {
+	p {
+		font-size: 15px;
+		@media (max-width: 1024.98px) {
+			font-size: 13px;
+		}
+	}
 }
 
 @media (min-width: 768px) {
@@ -88,5 +106,13 @@ footer {
 	}
 	.footer__logo {
 		max-width: 120px;
+	}
+}
+
+.contact-page {
+	.copyright {
+		p {
+			color: white;
+		}
 	}
 }

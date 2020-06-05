@@ -25,24 +25,35 @@
 		-webkit-box-flex: 0;
 		flex: 0 0 120px;
 		width: 120px;
-		img {
+		img,
+		svg {
 			width: 100%;
+			height: auto;
 		}
 	}
 	@media (min-width: 576px) {
 		.img {
-			width: 260px;
+			flex: 0 0 260px;
+			width: 230px;
+		}
+	}
+	@media (min-width: 1025px) {
+		.img {
+			flex: 0 0 320px;
+			width: 320px;
 		}
 	}
 	@media (min-width: 1440px) {
 		.img {
+			flex: 0 0 400px;
 			width: 400px;
 		}
 	}
 
 	@media (min-width: 1600px) {
 		.img {
-			width: 470px;
+			flex: 0 0 520px;
+			width: 520px;
 		}
 	}
 }

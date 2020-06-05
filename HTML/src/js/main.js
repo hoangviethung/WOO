@@ -1,6 +1,6 @@
 import { Loading } from './lib/Loading'
 import { Fullpage } from './lib/Fullpage'
-import { TextParticle } from './lib/Particle'
+// import { TextParticle } from './lib/Particle'
 import { setHeight, getSVGs } from './util/utilities'
 import TypeIt from 'typeit'
 
@@ -213,7 +213,7 @@ const index_textTyping = () => {
 
 const index_logoParticle = () => {
 	if (document.querySelector('#text-particle')) {
-		TextParticle('#text-particle', index_textTyping)
+		// TextParticle('#text-particle', index_textTyping)
 	}
 }
 
@@ -335,101 +335,107 @@ const getAllPreviousSection = (btn, arr) => {
 }
 
 const nextSection = () => {
-	const pageVerify = document.querySelector('#js-page-verify')
-	if (pageVerify && !pageVerify.classList.contains('index-page')) {
-		const btn = document.querySelector('#next-section')
-		let arraySection
-		if (btn) {
-			let count = 0
-			arraySection = getAllPreviousSection(btn, [])
-			arraySection.forEach((item) => {
-				if (
-					item.getBoundingClientRect().top < window.innerHeight &&
-					item.getBoundingClientRect().top >= 0 &&
-					count < 1
-				) {
-					item.classList.add('section-active')
-					count++
-				}
-			})
+	const execute = () => {
+		$('[data-scroll]').each(function (index) {
+			const dataScrollOfset = this.offsetTop
 
-			btn.addEventListener('click', () => {
-				const currentItem = document.querySelector('.section-active')
-				if (currentItem.nextElementSibling) {
-					currentItem.classList.remove('section-active')
-					currentItem.nextElementSibling.classList.add(
-						'section-active'
-					)
-
-					window.scrollTo({
-						top:
-							document.querySelector('.section-active')
-								.offsetTop -
-							document.querySelector('header').innherHeight,
-						left: 0,
-						behavior: 'smooth',
-					})
+			if (window.scrollY > dataScrollOfset - $(window).width() / 3) {
+				let nextSectionScroll = $('[data-scroll]')[index + 1]
+				if (!nextSectionScroll) {
+					nextSectionScroll = $('[data-scroll]')[0]
+					$('.next-section').addClass('return')
+					$('.next-section')
+						.find('.lnr')
+						.each(function () {
+							$(this).addClass('lnr-chevron-up')
+							$(this).removeClass('lnr-chevron-down')
+						})
 				} else {
-					btn.classList.add('disabled')
+					$('.next-section').removeClass('return')
+					$('.next-section')
+						.find('.lnr')
+						.each(function () {
+							$(this).addClass('lnr-chevron-down')
+							$(this).removeClass('lnr-chevron-up')
+						})
 				}
-			})
-			window.addEventListener('scroll', () => {})
-		}
-	}
-}
-
-const drawSvgIndex = () => {
-	const svg = document.querySelector('#text-particle')
-	if (svg) {
-		Array.from(svg.querySelectorAll('.path')).forEach((item) => {
-			item.classList.add('pathed')
+				$('.next-section').attr(
+					'data-scroll-to',
+					$(nextSectionScroll).attr('data-scroll')
+				)
+			}
 		})
 	}
-}
+	execute()
+	window.addEventListener('scroll', () => {
+		execute()
+	})
 
-const customEffect = () => {
-	const area = document.querySelector('.content-home')
-	if (area) {
-		const width = area.clientWidth
-		const height = area.clientHeight
-		let origin = {}
-		origin.x = width / 2
-		origin.y = height / 2
-
-		if (area) {
-			area.addEventListener('mouseenter', (e) => {
-				area.querySelector(
-					'.background svg'
-				).style.transform = `translate3D(${
-					-(e.clientX - origin.x) / 30
-				}px,${-(e.clientY - origin.y) / 30}px, 0)`
-			})
-			area.addEventListener('mousemove', (e) => {
-				area.querySelector(
-					'.background svg'
-				).style.transform = `translate3D(${
-					-(e.clientX - origin.x) / 30
-				}px,${-(e.clientY - origin.y) / 30}px, 0)`
-			})
-			area.addEventListener('mouseleave', (e) => {
-				area.querySelector('.background svg').style.transition =
-					'all .3s linear'
-				area.querySelector(
-					'.background svg'
-				).style.transform = `translate3D(0px,0px, 0)`
-			})
-			area.addEventListener('webkitTransitionEnd', () => {
-				area.querySelector('.background svg').style.transition = 'none'
-			})
+	$('.next-section').on('click', function () {
+		const target = $(this).attr('data-scroll-to')
+		if (`[data-scroll="${target}"]`) {
+			$('html,body').animate(
+				{
+					scrollTop: $(`[data-scroll="${target}"]`).offset().top,
+				},
+				1000
+			)
 		}
-	}
+	})
 }
+
+// const drawSvgIndex = () => {
+// 	const svg = document.querySelector('#text-particle')
+// 	if (svg) {
+// 		Array.from(svg.querySelectorAll('.path')).forEach((item) => {
+// 			item.classList.add('pathed')
+// 		})
+// 	}
+// }
+
+// const customEffect = () => {
+// 	const area = document.querySelector('.content-home')
+// 	if (area) {
+// 		const width = area.clientWidth
+// 		const height = area.clientHeight
+// 		let origin = {}
+// 		origin.x = width / 2
+// 		origin.y = height / 2
+
+// 		if (area) {
+// 			area.addEventListener('mouseenter', (e) => {
+// 				area.querySelector(
+// 					'.background svg'
+// 				).style.transform = `translate3D(${
+// 					-(e.clientX - origin.x) / 30
+// 				}px,${-(e.clientY - origin.y) / 30}px, 0)`
+// 			})
+// 			area.addEventListener('mousemove', (e) => {
+// 				area.querySelector(
+// 					'.background svg'
+// 				).style.transform = `translate3D(${
+// 					-(e.clientX - origin.x) / 30
+// 				}px,${-(e.clientY - origin.y) / 30}px, 0)`
+// 			})
+// 			area.addEventListener('mouseleave', (e) => {
+// 				area.querySelector('.background svg').style.transition =
+// 					'all .3s linear'
+// 				area.querySelector(
+// 					'.background svg'
+// 				).style.transform = `translate3D(0px,0px, 0)`
+// 			})
+// 			area.addEventListener('webkitTransitionEnd', () => {
+// 				area.querySelector('.background svg').style.transition = 'none'
+// 			})
+// 		}
+// 	}
+// }
 
 document.addEventListener('DOMContentLoaded', () => {
 	addClassBody()
 	toggleHeader()
 	checkColor()
-	effectHeaderNotInIndex()
+	// effectHeaderNotInIndex()
 	setPaddingBreadcrumb()
 	getSVGs('.svg')
 	setHeightForSomeItemHaveAttribute()
@@ -440,35 +446,36 @@ document.addEventListener('DOMContentLoaded', () => {
 	// scripts run after loading
 	checkFooter()
 	nextSection()
-	customEffect()
-
-	const wowOpts = {
-		boxClass: 'wow', // animated element css class (default is wow)
-		animateClass: 'animated', // animation css class (default is animated)
-		offset: 100, // distance to the element when triggering the animation (default is 0)
-		mobile: true, // trigger animations on mobile devices (default is true)
-		live: true, // act on asynchronously loaded content (default is true)
-		callback: function (box) {
-			// the callback is fired every time an animation is started
-			// the argument that is passed in is the DOM node being animated
-		},
-		scrollContainer: null, // optional scroll container selector, otherwise use window,
-		resetAnimation: true,
-	}
-	if (page.classList.contains('index-page')) {
-		if (window.innerWidth <= 1024) {
-			new WOW(wowOpts).init()
-		}
-	} else {
-		new WOW(wowOpts).init()
-	}
+	// customEffect()
 
 	Loading().then(() => {
 		// index_logoParticle()
 		index_fullpage()
-		drawSvgIndex()
-		$('.intro').addClass('go')
+		// drawSvgIndex()
+		// $('.intro').addClass('go')
+		// $('.intro')
+		// 	.on('mouseenter', function () {
+		// 		$('.intro').removeClass('go')
+		// 		setTimeout(() => {
+		// 			$('.intro').addClass('go')
+		// 		}, 50)
+		// 	})
 		$('.about-text svg').addClass('active')
+		$('.svg-mobile').addClass('active')
+		$('.wow').css({
+			opacity: 1,
+		})
+		$('.content-home').addClass('active')
+		new WOW({
+			boxClass: 'wow',
+			animateClass: 'animated',
+			offset: 100,
+			mobile: true,
+			live: true,
+			callback: function (box) {},
+			scrollContainer: null,
+			resetAnimation: true,
+		}).init()
 	})
 })
 

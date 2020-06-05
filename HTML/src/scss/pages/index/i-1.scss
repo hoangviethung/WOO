@@ -9,6 +9,14 @@
 			stroke-dashoffset: 0;
 		}
 	}
+	@keyframes dashReverse {
+		0% {
+			stroke-dashoffset: 0;
+		}
+		100% {
+			stroke-dashoffset: -450;
+		}
+	}
 
 	@keyframes textFill {
 		0% {
@@ -31,10 +39,31 @@
 		z-index: 2;
 		cursor: grab;
 		.intro {
-			width: 1000px;
-
+			width: 100%;
 			.text {
 				display: none;
+				stroke-linecap: butt;
+				stroke-linejoin: round;
+			}
+			.text-stroke {
+				fill: none;
+				stroke: darken(white, 15%);
+				stroke-width: 6px;
+				stroke-dashoffset: -100;
+				stroke-dasharray: 900;
+			}
+			.text-stroke-2 {
+				stroke: map-get($mau, main);
+				animation-delay: 0.1s;
+			}
+			.text-stroke:nth-child(5) {
+				animation-delay: 0.3s;
+			}
+			.text-stroke:nth-child(6) {
+				animation-delay: 0.5s;
+			}
+			@media (min-width: 1025px) {
+				width: 1000px;
 			}
 		}
 		h1 {
@@ -71,21 +100,21 @@
 		position: absolute;
 		opacity: 0.075;
 		pointer-events: none;
-		right: -5%;
-		top: 48%;
+		top: 73%;
+		right: -23%;
 		transform: translateY(-50%);
 		svg {
 			width: auto;
-			height: 330px;
+			height: 540px;
 			path {
 				stroke-width: 10px;
 				stroke: map-get($mau, main);
 			}
 			@media (min-width: 1025px) {
-				height: 420px;
+				height: 780px;
 			}
 			@media (min-width: 1200px) {
-				height: 560px;
+				height: 900px;
 			}
 		}
 	}
@@ -93,74 +122,18 @@
 		#text-particle {
 			.intro {
 				.text {
-					font-family: Arial, sans-serif;
 					font-size: 20px;
 					text-transform: uppercase;
 					display: block;
 					font-weight: 700;
-					transition: all 0.3s ease-out;
-					&:hover {
-						fill: none;
-						stroke: darken(white, 15%);
-					}
 				}
 				.text-stroke {
-					fill: none;
-					stroke: darken(white, 15%);
-					stroke-width: 7px;
-					stroke-dashoffset: -900;
-					stroke-dasharray: 900;
-					stroke-linecap: butt;
-					stroke-linejoin: round;
-					animation: dash 1.5s ease-in-out forwards;
+					animation: dash 2s linear forwards;
 				}
-				.text-stroke-2 {
-					stroke: map-get($mau, main);
-					animation-delay: 0.4s;
-				}
-				.text-stroke:nth-child(5) {
-					animation-delay: 0.6s;
-				}
-				.text-stroke:nth-child(6) {
-					animation-delay: 0.8s;
-				}
-			}
-		}
-	}
-	@media (max-width: 1024.98px) {
-		#text-particle {
-			.intro {
-				.text {
-					font-family: Arial, sans-serif;
-					font-size: 20px;
-					text-transform: uppercase;
-					display: block;
-					font-weight: 700;
-					transition: all 0.3s ease-out;
-					&:hover {
-						fill: none;
-						stroke: darken(white, 15%);
+				&:hover {
+					.text-stroke-2 {
+						animation: dashReverse 3.5s linear forwards;
 					}
-				}
-				.text-stroke {
-					fill: none;
-					stroke: darken(white, 15%);
-					stroke-width: 7px;
-					stroke-dashoffset: -900;
-					stroke-dasharray: 900;
-					stroke-linecap: butt;
-					stroke-linejoin: round;
-					animation: dash 1.5s ease-in-out forwards;
-				}
-				.text-stroke-2 {
-					stroke: map-get($mau, main);
-					animation-delay: 0.4s;
-				}
-				.text-stroke:nth-child(5) {
-					animation-delay: 0.6s;
-				}
-				.text-stroke:nth-child(6) {
-					animation-delay: 0.8s;
 				}
 			}
 		}

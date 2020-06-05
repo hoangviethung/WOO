@@ -5,13 +5,14 @@ block var
 	- let bodyClass = 'about-page';
 
 block loading
-	include _templates/_layout/_loading
+	
 block banner,breadcrumb
 	include _templates/_layout/_breadcrumb
 block main
 	.fp-layer-video-mask
 		.fp-layer-video.desktop
-			iframe(src="https://www.youtube.com/embed/BDCU5OFXZ2c?controls=0&amp;autoplay=1&amp;mute=1&amp;loop=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+			//- iframe(src="https://www.youtube.com/embed/BDCU5OFXZ2c?controls=0&amp;autoplay=1&amp;mute=1&amp;loop=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+			video.ofcv(src="./assets/video_min.mp4" autoplay loop muted playsinline)
 		.about-text.desktop
 			.about-1-text
 				.container

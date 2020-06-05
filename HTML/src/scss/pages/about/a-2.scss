@@ -7,6 +7,7 @@
 		width: 100%;
 	}
 }
+
 .ab2__item {
 	.item__title {
 		color: map-get($mau, main);
@@ -69,7 +70,7 @@
 		h2 {
 			color: white;
 			line-height: 0.85;
-			text-shadow: 0 0 5px rgba(map-get($mau, main),.4);
+			text-shadow: 0 0 5px rgba(map-get($mau, main), 0.4);
 			br {
 				display: inline;
 			}

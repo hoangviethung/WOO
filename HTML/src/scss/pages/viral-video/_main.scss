@@ -20,8 +20,10 @@
 		flex: 0 0 120px;
 		width: 120px;
 		max-width: 120px;
+		img,
 		svg {
 			width: 100%;
+			height: auto;
 		}
 	}
 	@media (min-width: 576px) {

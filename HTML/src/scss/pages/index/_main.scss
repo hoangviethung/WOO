@@ -151,8 +151,8 @@
 		display: block;
 		svg {
 			path {
-				animation: characterStroke 3s linear forwards,
-					characterFill 1.25s 1.25s linear forwards;
+				animation: characterStroke 1.75s linear forwards,
+					characterFill 0.5s 1s linear forwards;
 			}
 		}
 	}
@@ -258,7 +258,7 @@
 			display: inline-flex;
 			justify-content: center;
 			align-items: center;
-			transition: all .3s ease-out;
+			transition: all 0.3s ease-out;
 			&.disabled {
 				opacity: 0.5;
 				pointer-events: none;
