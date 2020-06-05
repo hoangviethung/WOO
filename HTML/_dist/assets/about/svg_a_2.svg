@@ -1,0 +1,37 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="674.257"
+  height="674.257"
+  viewBox="0 0 674.257 674.257"
+>
+  <defs>
+    <linearGradient
+      id="a"
+      x1="0.458"
+      y1="0.323"
+      x2="0.5"
+      y2="1"
+      gradientUnits="objectBoundingBox"
+    >
+      <stop offset="0" stop-color="#ffd6c9" />
+      <stop offset="0.745" stop-color="#f88b98" />
+      <stop offset="1" stop-color="#f1667f" />
+    </linearGradient>
+  </defs>
+  <g transform="translate(-44 -1082)">
+    <path
+      d="M337.128,0C150.959,0,0,150.959,0,337.128S150.959,674.257,337.128,674.257,674.257,523.3,674.257,337.128,523.3,0,337.128,0Zm0,433.451a96.322,96.322,0,1,1,96.322-96.322A96.33,96.33,0,0,1,337.128,433.451Z"
+      transform="translate(44 1082)"
+      fill="#f1667f"
+    />
+    <circle
+      cx="190"
+      cy="190"
+      r="190"
+      transform="translate(614.403 1554.052) rotate(165)"
+      fill="url(#a)"
+      style="mix-blend-mode: multiply; isolation: isolate;"
+    />
+  </g>
+</svg>
