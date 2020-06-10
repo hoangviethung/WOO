@@ -275,6 +275,51 @@ const popupDownload = () => {
 			opts: {
 				hash: false,
 				closeExisting: true,
+				afterShow: function () {
+					$('.popup-download .popup__form .btn').on(
+						'click',
+						function (e) {
+							e.preventDefault()
+							const _thisBtn = $(this)
+							_thisBtn.attr('disabled', 'disabled')
+							const url = _thisBtn.attr('data-url')
+							const formData = new FormData()
+							$(
+								'.popup-download .popup__form .form-control'
+							).each(function () {
+								const name = $(this).attr('name')
+								const value = $(this).val()
+								formData.append(name, value)
+							})
+							if ($('.popup__form').valid()) {
+								$.ajax({
+									url: url,
+									type: 'post',
+									data: formData,
+									processData: false,
+									contentType: false,
+									success: function (res) {
+										$(
+											'.popup-download .popup__form #document-id'
+										).val(res.Data)
+										const fileNameUrl = res.Data.split('/')
+										const fileName = fileNameUrl.pop()
+										const download = document.createElement(
+											'a'
+										)
+										download.setAttribute('download')
+										download.setAttribute(
+											'href',
+											fileNameUrl
+										)
+										download.click()
+										_thisBtn.removeAttr('disabled')
+									},
+								})
+							}
+						}
+					)
+				},
 			},
 		})
 	})
@@ -431,6 +476,34 @@ const nextSection = () => {
 // 	}
 // }
 
+const sendFormContact = () => {
+	$('.contact__form .btn').on('click', function (e) {
+		e.preventDefault()
+		const _thisBtn = $(this)
+		const url = _thisBtn.attr('data-url')
+		const formData = new FormData()
+		$('.contact__form .form-control').each(function () {
+			const name = $(this).attr('name')
+			const value = $(this).val()
+			formData.append(name, value)
+		})
+		_thisBtn.attr('disabled', 'disabled')
+		if ($('.contact__form').valid()) {
+			$.ajax({
+				url: url,
+				type: 'post',
+				data: formData,
+				processData: false,
+				contentType: false,
+				success: function (res) {
+					console.log(res)
+					_thisBtn.removeAttr('disabled')
+				},
+			})
+		}
+	})
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 	addClassBody()
 	toggleHeader()
@@ -447,7 +520,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	checkFooter()
 	nextSection()
 	// customEffect()
-
+	sendFormContact()
 	Loading().then(() => {
 		// index_logoParticle()
 		index_fullpage()
