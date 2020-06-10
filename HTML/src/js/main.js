@@ -454,9 +454,6 @@ const popupDownload = () => {
 									},
 									success: function (res) {
 										if (res.Code == 200) {
-											$(
-												'.popup-download .popup__form #document-id'
-											).val(res.Result)
 											const fileNameUrl = res.Result.split(
 												'/'
 											)
