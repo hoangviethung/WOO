@@ -432,7 +432,6 @@ const popupDownload = () => {
 						function (e) {
 							e.preventDefault()
 							const _thisBtn = $(this)
-							_thisBtn.attr('disabled', 'disabled')
 							const url = _thisBtn.attr('data-url')
 							const formData = new FormData()
 							$(
@@ -449,6 +448,9 @@ const popupDownload = () => {
 									data: formData,
 									processData: false,
 									contentType: false,
+									beforeSend: function () {
+										_thisBtn.attr('disabled', 'disabled')
+									},
 									success: function (res) {
 										if (res.Code == 200) {
 											$(
@@ -493,7 +495,6 @@ const sendFormContact = () => {
 			const value = $(this).val()
 			formData.append(name, value)
 		})
-		_thisBtn.attr('disabled', 'disabled')
 		if ($('.contact__form').valid()) {
 			$.ajax({
 				url: url,
@@ -501,6 +502,9 @@ const sendFormContact = () => {
 				data: formData,
 				processData: false,
 				contentType: false,
+				beforeSend: function () {
+					_thisBtn.attr('disabled', 'disabled')
+				},
 				success: function (res) {
 					if (res.Code == 200) {
 						$('.contact__form .form-control').each(function () {
