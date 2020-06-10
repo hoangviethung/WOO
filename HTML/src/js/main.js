@@ -258,73 +258,6 @@ const index_fullpage = () => {
 	}
 }
 
-const popupDownload = () => {
-	$('.ri2__item').on('click', function (e) {
-		e.preventDefault()
-		const documentImageSrc = $(this).find('.item__img>img').attr('src')
-		const documentId = $(this).attr('data-id')
-		const documentField = $('#popup-download #document-id')
-		documentField.val('')
-		documentField.val(documentId)
-		const img = document.createElement('img')
-		$(img).attr('src', documentImageSrc)
-		$('#popup-download .popup__image').html($(img))
-		$.fancybox.open({
-			src: '#popup-download',
-			type: 'inline',
-			opts: {
-				hash: false,
-				closeExisting: true,
-				afterShow: function () {
-					$('.popup-download .popup__form .btn').on(
-						'click',
-						function (e) {
-							e.preventDefault()
-							const _thisBtn = $(this)
-							_thisBtn.attr('disabled', 'disabled')
-							const url = _thisBtn.attr('data-url')
-							const formData = new FormData()
-							$(
-								'.popup-download .popup__form .form-control'
-							).each(function () {
-								const name = $(this).attr('name')
-								const value = $(this).val()
-								formData.append(name, value)
-							})
-							if ($('.popup__form').valid()) {
-								$.ajax({
-									url: url,
-									type: 'post',
-									data: formData,
-									processData: false,
-									contentType: false,
-									success: function (res) {
-										$(
-											'.popup-download .popup__form #document-id'
-										).val(res.Data)
-										const fileNameUrl = res.Data.split('/')
-										const fileName = fileNameUrl.pop()
-										const download = document.createElement(
-											'a'
-										)
-										download.setAttribute('download')
-										download.setAttribute(
-											'href',
-											fileNameUrl
-										)
-										download.click()
-										_thisBtn.removeAttr('disabled')
-									},
-								})
-							}
-						}
-					)
-				},
-			},
-		})
-	})
-}
-
 const setPaddingBreadcrumb = () => {
 	const breadcrumb = document.querySelector('.breadcrumb-wrapper')
 	if (breadcrumb) {
@@ -476,6 +409,79 @@ const nextSection = () => {
 // 	}
 // }
 
+const popupDownload = () => {
+	$('.ri2__item').on('click', function (e) {
+		e.preventDefault()
+		const documentImageSrc = $(this).find('.item__img>img').attr('src')
+		const documentId = $(this).attr('data-id')
+		const documentField = $('#popup-download #document-id')
+		documentField.val('')
+		documentField.val(documentId)
+		const img = document.createElement('img')
+		$(img).attr('src', documentImageSrc)
+		$('#popup-download .popup__image').html($(img))
+		$.fancybox.open({
+			src: '#popup-download',
+			type: 'inline',
+			opts: {
+				hash: false,
+				closeExisting: true,
+				afterShow: function () {
+					$('.popup-download .popup__form .btn').on(
+						'click',
+						function (e) {
+							e.preventDefault()
+							const _thisBtn = $(this)
+							_thisBtn.attr('disabled', 'disabled')
+							const url = _thisBtn.attr('data-url')
+							const formData = new FormData()
+							$(
+								'.popup-download .popup__form .form-control'
+							).each(function () {
+								const name = $(this).attr('name')
+								const value = $(this).val()
+								formData.append(name, value)
+							})
+							if ($('.popup-download .popup__form').valid()) {
+								$.ajax({
+									url: url,
+									type: 'post',
+									data: formData,
+									processData: false,
+									contentType: false,
+									success: function (res) {
+										if (res.Code == 200) {
+											$(
+												'.popup-download .popup__form #document-id'
+											).val(res.Data)
+											const fileNameUrl = res.Data.split(
+												'/'
+											)
+											const fileName = fileNameUrl.pop()
+											const download = document.createElement(
+												'a'
+											)
+											download.setAttribute('download')
+											download.setAttribute(
+												'href',
+												fileNameUrl
+											)
+											download.click()
+										} else {
+											alert(res.Message)
+										}
+										_thisBtn.removeAttr('disabled')
+									},
+								})
+							}
+						}
+					)
+				},
+			},
+		})
+	})
+}
+
 const sendFormContact = () => {
 	$('.contact__form .btn').on('click', function (e) {
 		e.preventDefault()
@@ -496,7 +502,12 @@ const sendFormContact = () => {
 				processData: false,
 				contentType: false,
 				success: function (res) {
-					console.log(res)
+					if (res.Code == 200) {
+						$('.contact__form .form-control').each(function () {
+							$(this).val('')
+						})
+					}
+					alert(res.Message)
 					_thisBtn.removeAttr('disabled')
 				},
 			})

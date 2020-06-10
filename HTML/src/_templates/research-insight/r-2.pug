@@ -142,10 +142,12 @@
 				label.form-group
 					input#document-id(type="text" hidden name="document-id" )
 				label.form-group
-					input(type="text", name="Fullname" placeholder="Fullname*")
+					input.form-control(type="text", name="Fullname" placeholder="Fullname*")
 				label.form-group
-					input(type="text", name="Phone" placeholder="Phone*")
+					input.form-control(type="text", name="Phone" placeholder="Phone*")
 				label.form-group
-					input(type="text", name="Email" placeholder="Email*")
+					input.form-control(type="text", name="Email" placeholder="Email*")
+				label.form-group(hidden)
+					input.form-control(type="text", name="g-recaptcha-response")
 				.form-group.form-button
 					button.btn(data-url="download") Get your document

@@ -17,6 +17,8 @@
 							input.form-control#email(type="text", name="email" placeholder="Email*")
 						.col-lg-12.form-group
 							textarea.form-control#message(name="message" placeholder="Message*")
+						.col-lg-12.form-group(hidden)
+							input.form-control#reCaptcha(name="g-recaptcha-response" placeholder="Message*")
 						.col-12.form-button
 							button.btn(data-url="/test") Submit
 								img(src="./assets/icons/muiten-trang.svg", alt="")
