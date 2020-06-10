@@ -453,8 +453,8 @@ const popupDownload = () => {
 										if (res.Code == 200) {
 											$(
 												'.popup-download .popup__form #document-id'
-											).val(res.Data)
-											const fileNameUrl = res.Data.split(
+											).val(res.Result)
+											const fileNameUrl = res.Result.split(
 												'/'
 											)
 											const fileName = fileNameUrl.pop()
