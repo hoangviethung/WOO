@@ -441,6 +441,7 @@ const popupDownload = () => {
 								const value = $(this).val()
 								formData.append(name, value)
 							})
+
 							if ($('.popup-download .popup__form').valid()) {
 								$.ajax({
 									url: url,
@@ -463,7 +464,10 @@ const popupDownload = () => {
 											const download = document.createElement(
 												'a'
 											)
-											download.setAttribute('download')
+											download.setAttribute(
+												'download',
+												fileName
+											)
 											download.setAttribute(
 												'href',
 												fileNameUrl
@@ -495,6 +499,7 @@ const sendFormContact = () => {
 			const value = $(this).val()
 			formData.append(name, value)
 		})
+
 		if ($('.contact__form').valid()) {
 			$.ajax({
 				url: url,

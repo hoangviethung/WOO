@@ -211,3 +211,12 @@ body {
 		display: none !important;
 	}
 }
+
+
+.field-validation-error{
+	display: block;
+	color: red;
+	font-size: 14px;
+	text-align: right;
+	padding: 0 15px;
+}

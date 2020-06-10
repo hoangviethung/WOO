@@ -143,10 +143,13 @@
 					input#document-id(type="text" hidden name="document-id" )
 				label.form-group
 					input.form-control(type="text", name="Fullname" placeholder="Fullname*")
+					span.field-validation-error error
 				label.form-group
 					input.form-control(type="text", name="Phone" placeholder="Phone*")
+					span.field-validation-error error
 				label.form-group
 					input.form-control(type="text", name="Email" placeholder="Email*")
+					span.field-validation-error error
 				label.form-group(hidden)
 					input.form-control(type="text", name="g-recaptcha-response")
 				.form-group.form-button

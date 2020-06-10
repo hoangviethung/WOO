@@ -13,10 +13,13 @@
 					.row
 						.col-lg-6.form-group
 							input.form-control#name(type="text", name="name" placeholder="Name*")
+							span.field-validation-error Error
 						.col-lg-6.form-group
 							input.form-control#email(type="text", name="email" placeholder="Email*")
+							span.field-validation-error Error
 						.col-lg-12.form-group
 							textarea.form-control#message(name="message" placeholder="Message*")
+							span.field-validation-error Error
 						.col-lg-12.form-group(hidden)
 							input.form-control#reCaptcha(name="g-recaptcha-response" placeholder="Message*")
 						.col-12.form-button
