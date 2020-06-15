@@ -1,0 +1,26 @@
+extends _templates/_layout/_layout.pug
+
+block var
+	- let title = 'Page | Brand Strategy';
+	- let bodyClass = 'strategy-detail-2-page';
+
+block loading
+	
+block banner,breadcrumb
+	include _templates/_layout/_breadcrumb
+block main
+	.strategy-detail.pd-70.sem(data-header="white" data-scroll="scroll-1")
+		.container
+			.content
+				.section-title.wow.fadeInUp
+					.stg-dt__img
+						img(src="./assets/strategy/stg_3.png")
+					h2 SEM
+			.stg-dt__content
+				.row
+					.col-md-6.wow.fadeInUp
+						p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium, nisi? Nisi qui sint repellat magnam, nihil ea quaerat sed totam, consequatur, est assumenda debitis cumque hic sunt quos error maxime.
+						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque rerum sint officiis ex sed voluptas nisi laudantium cumque repudiandae ratione laboriosam, repellendus cupiditate dolore quam? Fugiat harum eos nobis corporis?
+					.col-md-6.wow.fadeInUp
+						p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium, nisi? Nisi qui sint repellat magnam, nihil ea quaerat sed totam, consequatur, est assumenda debitis cumque hic sunt quos error maxime.
+						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque rerum sint officiis ex sed voluptas nisi laudantium cumque repudiandae ratione laboriosam, repellendus cupiditate dolore quam? Fugiat harum eos nobis corporis?

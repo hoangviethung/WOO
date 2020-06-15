@@ -1,0 +1,14 @@
+.sem.strategy-detail {
+	.section-title {
+		flex-direction: row;
+		@media (min-width: 768px) {
+			margin-right: -10%;
+			flex-direction: row-reverse;
+
+			h2 {
+				margin-right: -39px;
+				margin-bottom: -150px;
+			}
+		}
+	}
+}

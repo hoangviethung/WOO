@@ -1,0 +1,28 @@
+extends _templates/_layout/_layout.pug
+
+block var
+	- let title = 'Page | Strategy Detail';
+	- let bodyClass = 'strategy-detail-1-page';
+
+block loading
+	
+block banner,breadcrumb
+	include _templates/_layout/_breadcrumb
+block main
+	.strategy-detail.pd-70.social-ads-detail(data-scroll="scroll-1")
+		.container
+			.content
+				.section-title
+					h2.wow.fadeInUp
+						span Social
+						| ads
+					.stg-dt__img.wow.fadeInUp
+						img(src="./assets/services/os_5.png")
+			.stg-dt__content
+				.row
+					.col-md-6.wow.fadeInUp
+						p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium, nisi? Nisi qui sint repellat magnam, nihil ea quaerat sed totam, consequatur, est assumenda debitis cumque hic sunt quos error maxime.
+						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque rerum sint officiis ex sed voluptas nisi laudantium cumque repudiandae ratione laboriosam, repellendus cupiditate dolore quam? Fugiat harum eos nobis corporis?
+					.col-md-6.wow.fadeInUp
+						p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium, nisi? Nisi qui sint repellat magnam, nihil ea quaerat sed totam, consequatur, est assumenda debitis cumque hic sunt quos error maxime.
+						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque rerum sint officiis ex sed voluptas nisi laudantium cumque repudiandae ratione laboriosam, repellendus cupiditate dolore quam? Fugiat harum eos nobis corporis?

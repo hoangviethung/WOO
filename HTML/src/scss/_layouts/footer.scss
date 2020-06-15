@@ -1,12 +1,13 @@
 footer {
-	background-color: white;
+	background-color: transparent;
 	position: relative;
 	.container {
 		border-top: 3px solid rgba(map-get($mau, main), 0.5);
 	}
 }
 
-.contact-page {
+.contact-page,
+.strategy-detail-2-page {
 	footer {
 		background-color: rgb(248, 178, 190);
 		.container {
