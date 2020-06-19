@@ -1,7 +1,14 @@
-import { Loading } from './lib/Loading'
-import { Fullpage } from './lib/Fullpage'
+import {
+	Loading
+} from './lib/Loading'
+import {
+	Fullpage
+} from './lib/Fullpage'
 // import { TextParticle } from './lib/Particle'
-import { setHeight, getSVGs } from './util/utilities'
+import {
+	setHeight,
+	getSVGs
+} from './util/utilities'
 import TypeIt from 'typeit'
 
 const page = document.querySelector('#js-page-verify')
@@ -104,12 +111,20 @@ const index_particleBackground = () => {
 			particles: {
 				number: {
 					value: 50,
-					density: { enable: true, value_area: 800 },
+					density: {
+						enable: true,
+						value_area: 800
+					},
 				},
-				color: { value: ['#f1667f', '#dfdfdf'] },
+				color: {
+					value: ['#f1667f', '#dfdfdf']
+				},
 				shape: {
 					type: 'circle',
-					stroke: { width: 0, color: '#000000' },
+					stroke: {
+						width: 0,
+						color: '#000000'
+					},
 				},
 				opacity: {
 					value: 1,
@@ -142,18 +157,32 @@ const index_particleBackground = () => {
 					straight: false,
 					out_mode: 'out',
 					bounce: false,
-					attract: { enable: false, rotateX: 600, rotateY: 1200 },
+					attract: {
+						enable: false,
+						rotateX: 600,
+						rotateY: 1200
+					},
 				},
 			},
 			interactivity: {
 				detect_on: 'window',
 				events: {
-					onhover: { enable: true, mode: ['repulse'] },
-					onclick: { enable: false },
+					onhover: {
+						enable: true,
+						mode: ['repulse']
+					},
+					onclick: {
+						enable: false
+					},
 					resize: true,
 				},
 				modes: {
-					grab: { distance: 400, line_linked: { opacity: 1 } },
+					grab: {
+						distance: 400,
+						line_linked: {
+							opacity: 1
+						}
+					},
 					bubble: {
 						distance: 400,
 						size: 40,
@@ -161,9 +190,16 @@ const index_particleBackground = () => {
 						opacity: 8,
 						speed: 3,
 					},
-					repulse: { distance: 150, duration: 0.75 },
-					push: { particles_nb: 4 },
-					remove: { particles_nb: 2 },
+					repulse: {
+						distance: 150,
+						duration: 0.75
+					},
+					push: {
+						particles_nb: 4
+					},
+					remove: {
+						particles_nb: 2
+					},
 				},
 			},
 			retina_detect: true,
@@ -180,13 +216,13 @@ const index_textTyping = () => {
 		slg1.removeAttribute('style')
 		slg2.removeAttribute('style')
 		const SLOGAN_2 = new TypeIt('#slogan-2', {
-			waitUntilVisible: true,
-			speed: 100,
-			afterComplete: () => {
-				SLOGAN_1.reset().go()
-				SLOGAN_2.reset()
-			},
-		})
+				waitUntilVisible: true,
+				speed: 100,
+				afterComplete: () => {
+					SLOGAN_1.reset().go()
+					SLOGAN_2.reset()
+				},
+			})
 			.type('master a ma')
 			.pause(300)
 			.delete(-4, {
@@ -198,13 +234,13 @@ const index_textTyping = () => {
 			.pause(2000)
 
 		const SLOGAN_1 = new TypeIt('#slogan-1', {
-			waitUntilVisible: true,
-			speed: 200,
-			cursorChar: '',
-			afterComplete: () => {
-				SLOGAN_2.go()
-			},
-		})
+				waitUntilVisible: true,
+				speed: 200,
+				cursorChar: '',
+				afterComplete: () => {
+					SLOGAN_2.go()
+				},
+			})
 			.type('MEDIA')
 			.pause(500)
 			.go()
@@ -352,8 +388,7 @@ const nextSection = () => {
 	$('.next-section').on('click', function () {
 		const target = $(this).attr('data-scroll-to')
 		if (`[data-scroll="${target}"]`) {
-			$('html,body').animate(
-				{
+			$('html,body').animate({
 					scrollTop: $(`[data-scroll="${target}"]`).offset().top,
 				},
 				1000
@@ -521,6 +556,16 @@ const sendFormContact = () => {
 	})
 }
 
+const addClassMediaPerformance = () => {
+	const sections = document.querySelectorAll('.strategy-1')
+	sections.forEach((item, index) => {
+		item.classList.add(`media-performance-${index+1}`);
+		item.setAttribute('data-scroll', `scroll-${index+1}`);
+		const btnViewMore = item.querySelector('.item__viewmore');
+		item.querySelector('.stg1__description').append(btnViewMore);
+	})
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 	addClassBody()
 	toggleHeader()
@@ -537,7 +582,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	checkFooter()
 	nextSection()
 	// customEffect()
-	sendFormContact()
+	sendFormContact();
+	addClassMediaPerformance();
 	Loading().then(() => {
 		// index_logoParticle()
 		index_fullpage()
