@@ -216,13 +216,13 @@ const index_textTyping = () => {
 		slg1.removeAttribute('style')
 		slg2.removeAttribute('style')
 		const SLOGAN_2 = new TypeIt('#slogan-2', {
-				waitUntilVisible: true,
-				speed: 100,
-				afterComplete: () => {
-					SLOGAN_1.reset().go()
-					SLOGAN_2.reset()
-				},
-			})
+			waitUntilVisible: true,
+			speed: 100,
+			afterComplete: () => {
+				SLOGAN_1.reset().go()
+				SLOGAN_2.reset()
+			},
+		})
 			.type('master a ma')
 			.pause(300)
 			.delete(-4, {
@@ -234,13 +234,13 @@ const index_textTyping = () => {
 			.pause(2000)
 
 		const SLOGAN_1 = new TypeIt('#slogan-1', {
-				waitUntilVisible: true,
-				speed: 200,
-				cursorChar: '',
-				afterComplete: () => {
-					SLOGAN_2.go()
-				},
-			})
+			waitUntilVisible: true,
+			speed: 200,
+			cursorChar: '',
+			afterComplete: () => {
+				SLOGAN_2.go()
+			},
+		})
 			.type('MEDIA')
 			.pause(500)
 			.go()
@@ -389,8 +389,8 @@ const nextSection = () => {
 		const target = $(this).attr('data-scroll-to')
 		if (`[data-scroll="${target}"]`) {
 			$('html,body').animate({
-					scrollTop: $(`[data-scroll="${target}"]`).offset().top,
-				},
+				scrollTop: $(`[data-scroll="${target}"]`).offset().top,
+			},
 				1000
 			)
 		}
@@ -457,7 +457,7 @@ const popupDownload = () => {
 		$('#popup-download .popup__image').html($(img))
 		$.fancybox.open({
 			src: '#popup-download',
-			type: 'inline',
+			type: 'stg1__description',
 			opts: {
 				hash: false,
 				closeExisting: true,
@@ -559,10 +559,12 @@ const sendFormContact = () => {
 const addClassMediaPerformance = () => {
 	const sections = document.querySelectorAll('.strategy-1')
 	sections.forEach((item, index) => {
-		item.classList.add(`media-performance-${index+1}`);
-		item.setAttribute('data-scroll', `scroll-${index+1}`);
+		item.classList.add(`media-performance-${index + 1}`);
+		item.setAttribute('data-scroll', `scroll-${index + 1}`);
 		const btnViewMore = item.querySelector('.item__viewmore');
-		item.querySelector('.stg1__description').append(btnViewMore);
+		if (btnViewMore) {
+			item.querySelector('.stg1__description').append(btnViewMore);
+		}
 	})
 }
 
@@ -608,7 +610,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			offset: 100,
 			mobile: true,
 			live: true,
-			callback: function (box) {},
+			callback: function (box) { },
 			scrollContainer: null,
 			resetAnimation: true,
 		}).init()

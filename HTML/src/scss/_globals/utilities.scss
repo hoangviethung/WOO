@@ -162,6 +162,11 @@
 }
 
 .section-description {
+	&.cl-black {
+		p {
+			color: #000000;
+		}
+	}
 	p {
 		font-size: 16px;
 		color: white;
@@ -212,8 +217,7 @@ body {
 	}
 }
 
-
-.field-validation-error{
+.field-validation-error {
 	display: block;
 	color: red;
 	font-size: 14px;
